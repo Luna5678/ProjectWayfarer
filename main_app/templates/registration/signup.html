@@ -1,25 +1,16 @@
-
-
 <h1 class="title">Sign Up</h1>
 
 {% if form.errors %}
 <article class="message is-danger">
   <div class="message-header">
     <p>Error</p>
-   
   </div>
-  <div class="message-body">
-    {{ form.errors }}
-  </div>
+  <div class="message-body">{{ form.errors }}</div>
 </article>
 {% endif %}
 
 <form method="post" action="{% url 'signup' %}">
-  {% csrf_token %} 
-  {{ user_form.as_p }}
-  {{ profile_form.as_p }}
+  {% csrf_token %} {{ form.as_p }} {{ profile_form.as_p }}
   <input type="submit" class="btn" value="Sign Up" />
   <input type="hidden" name="next" value="{{ next }}" />
 </form>
-
-
