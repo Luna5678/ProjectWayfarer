@@ -10,7 +10,8 @@
 {% endif %}
 
 <form method="post" action="{% url 'signup' %}">
-  {% csrf_token %} {{ form.as_p }} {{ profile_form.as_p }}
+  {% csrf_token %} {{ form.as_p }}
+  {% comment %} {{ profile_form.as_p }} {% endcomment %}
   <input type="submit" class="btn" value="Sign Up" />
   <input type="hidden" name="next" value="{{ next }}" />
 </form>

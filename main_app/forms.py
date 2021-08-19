@@ -6,7 +6,9 @@ from django.forms import ModelForm
 from .models import Profile
 
 
-class ProfileForm(ModelForm):
+class ProfileForm(UserCreationForm):
+    current_city= forms.CharField()
+    image = forms.CharField()
     class Meta:
-        model = Profile
-        fields = ('image', )
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'current_city', 'image', 'email', 'password1', 'password2')
