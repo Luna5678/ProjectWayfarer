@@ -1,7 +1,10 @@
 from django.urls import path
-from . import views
-from .views import Signup
+from . import views as core_views
+from .views import Signup, Home
+from django.conf.urls import url
+
 
 urlpatterns = [
-  path('accounts/signup/', Signup.as_view(), name='signup'),   
+  path('', Home.as_view(), name='home'),
+  path('accounts/signup/', Signup.as_view(), name='signup'),
 ]
