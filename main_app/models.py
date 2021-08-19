@@ -10,8 +10,8 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(
         User, null=True, on_delete=models.CASCADE, related_name="profile")
-    image = CharField(
-        max_length=500, default="https://www.pngjoy.com/pngm/136/2750635_gray-circle-login-user-icon-png-transparent-png.png")
+    image = models.CharField(
+        max_length=500)
 
     def __str__(self):
         return str(self.user)
