@@ -9,7 +9,9 @@ class Profile(Model):
   profile_img = CharField(max_length=500)
 
   def __str__(self):
-    return self.user
+    return self.user, current_city
 
-class User(AbstractUser):
-  pass
+
+
+# class User(AbstractUser):
+#   pass
