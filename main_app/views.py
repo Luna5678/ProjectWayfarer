@@ -5,10 +5,14 @@ from django.contrib.auth.models import User
 from django.forms import ModelForm
 from .forms import ProfileForm
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.base import TemplateView
 
 
 # Create your views here.
+class Home(TemplateView):
+    template_name = 'base.html'
 
+    
 
 class Signup(View):
     def get(self, request):
