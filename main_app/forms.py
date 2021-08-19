@@ -10,3 +10,9 @@ class ProfileForm(ModelForm):
     class Meta:
         model = Profile
         fields = ('image', )
+class SignUpForm(UserCreationForm):
+    birth_date = forms.DateField(help_text='Required. Format: YYYY-MM-DD')
+
+    class Meta:
+        model = User
+        fields = ('username', 'birth_date', 'password1', 'password2', )
