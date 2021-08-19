@@ -5,28 +5,46 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
-
 # Create your models here.
-class Profile(Model):
-  user = OneToOneField(User, on_delete=models.CASCADE,related_name="profile")
-  current_city = CharField(max_length=50)
-  profile_img = CharField(max_length=500)
+
+class Profile(models.Model):
+    user = models.OneToOneField(
+        User, null=True, on_delete=models.CASCADE, related_name="profile")
+    image = CharField(
+        max_length=500, default="https://www.pngjoy.com/pngm/136/2750635_gray-circle-login-user-icon-png-transparent-png.png")
+
+    def __str__(self):
+        return str(self.user)
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
 
 
-  @receiver(post_save, sender=User)
-  def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
+# class Profile(Model):
+#   user = OneToOneField(User, on_delete=models.CASCADE,related_name="profile")
+#   current_city = CharField(max_length=50)
+#   profile_img = CharField(max_length=500)
 
 
-  @receiver(post_save, sender=User)
-  def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
+#   @receiver(post_save, sender=User)
+#   def create_user_profile(sender, instance, created, **kwargs):
+#     if created:
+#         Profile.objects.create(user=instance)
 
 
-  def __str__(self):
-    return self.user.username
+#   @receiver(post_save, sender=User)
+#   def save_user_profile(sender, instance, **kwargs):
+#     instance.profile.save()
 
+
+#   def __str__(self):
+#     return self.user.username
 
 
 # class User(AbstractUser):
