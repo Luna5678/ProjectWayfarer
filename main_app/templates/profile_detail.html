@@ -7,20 +7,86 @@
 <h2>First Name:</h2>
 <p>{{user.first_name}}</p>
 <h2>Last Name:</h2>
+
+<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#name_edit_modal">
+  Edit Full Name
+</button>
 <p>{{user.last_name}}</p>
 <h2>My current city:</h2>
 <p>{{user.profile.current_city}}</p>
+{% comment %} city edit modal {% endcomment %}
+<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#city_edit_modal">
+  Edit Current City
+</button>
 <h2>Join Date:</h2>
 <p>{{user.date_joined}}</p>
-
-<button><a href="{% url 'edit' user.pk %}">Edit Profile</a></button>
 {% else %}
 <p>error</p>
 {% endif %}
-
 <h2>Your posts:</h2>
 {% for post in posts %}
 <a href="{% url 'post_detail' post.pk %}"><h3>{{ post.title }}</h3></a>
 <p>Author: {{post.author}}</p>
 <p>{{post.content}}</p>
-{% endfor %} {% endblock content %}
+
+{% endfor %} 
+
+{% comment %} Modal for Name edit {% endcomment %}
+<div class="modal fade" id="name_edit_modal" tabindex="-1" aria-labelledby="name_edit_modal_label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="name_edit_modal_label">Change Your Name</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form action="{% url 'edit_name' user.pk %}" method="post">
+            <div class="form-group">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label>First Name</label>
+                  <input type="text" class="form-control" name='first_name' value='{{user.first_name}}' >
+                </div>
+                <div class="form-group">
+                  <label>Last Name</label>
+                  <input type="text" class="form-control" name='last_name' value='{{user.last_name}}' >
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} Modal for Currenty city edit {% endcomment %}
+<div class="modal fade" id="city_edit_modal" tabindex="-1" aria-labelledby="city_edit_modal_label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="city_edit_modal_label">Edit Your City</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form action="{% url 'edit_city' profile.pk %}" method="post">
+            <div class="form-group">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label>Current City</label>
+                  <input type="text" class="form-control" name='current_city' value='{{profile.current_city}}' >
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}
+

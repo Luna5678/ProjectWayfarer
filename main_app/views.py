@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse
 from django.views.generic.edit import UpdateView
-
+from django.contrib.auth.views import LoginView
 
 # Create your views here.
 
@@ -64,19 +64,18 @@ class ProfileDetail(DetailView):
         context["posts"] = Post.objects.all()
         return context
 
-
-class ProfileEdit(UpdateView):
-    form_class = ProfileForm
-    model = Profile
-    template_name = "profile_edit.html"
+class NameProfileEdit(UpdateView):
+    # form_class = ProfileForm
+    # model = Profile
+    # template_name = "profile_edit.html"
     # def get_context_data(self, **kwargs):
     #     context = super(ProfileEdit, self).get_context_data(**kwargs)
     #     context['profile'] = Profile.objects.all() #whatever you would like
     #     return context
 
-    # model = User
-    # fields = [ "first_name","last_name" ]
-    # template_name = "profile_edit.html"
+    model = User
+    fields = [ "first_name","last_name" ]
+    template_name = "profile_edit.html"
 
     # model = Profile
     # fields = [ "current_city" ]
@@ -85,7 +84,19 @@ class ProfileEdit(UpdateView):
     def get_success_url(self):
         return reverse("profile", kwargs={"pk": self.object.pk})
 
+class CityProfileEdit(UpdateView):
+    model = Profile
+    fields = [ "current_city" ]
+    template_name = "city_profile_edit.html"
+    
+    def get_success_url(self):
+        return reverse("profile", kwargs={"pk": self.object.pk})
 
 class PostDetail(DetailView):
     model = Post
     template_name = "post_detail.html"
+
+
+class ProfileRedirect(View):
+    def get(self, request):
+        return redirect(f'/profile/{request.user.profile.pk}')
