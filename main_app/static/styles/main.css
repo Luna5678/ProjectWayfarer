@@ -86,7 +86,7 @@ main {
 }
 
 .profile-post-container {
-  border-bottom: 5px var(--pink) dotte;
+  border-bottom: 5px var(--pink) dotted;
 }
 
 /* === Post Detail Page === */
