@@ -8,7 +8,7 @@ from .forms import ProfileForm
 # from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
-from .models import Profile, User
+from .models import Profile, User, Post
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse
@@ -57,11 +57,13 @@ class ProfileDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        username = self.request.GET.get("username")
-        if username != None:
-            context["profile"] = Profile.objects.filter(
-                username__icontains=username, user=self.request.user)
+        # username = self.request.GET.get("username")
+        # if username != None:
+        # context["profile"] = Profile.objects.filter(
+        #     username__icontains=username, user=self.request.user)
+        context["posts"] = Post.objects.all()
         return context
+
 
 class ProfileEdit(UpdateView):
     form_class = ProfileForm
@@ -71,14 +73,19 @@ class ProfileEdit(UpdateView):
     #     context = super(ProfileEdit, self).get_context_data(**kwargs)
     #     context['profile'] = Profile.objects.all() #whatever you would like
     #     return context
-    
+
     # model = User
     # fields = [ "first_name","last_name" ]
     # template_name = "profile_edit.html"
-    
-        # model = Profile
+
+    # model = Profile
     # fields = [ "current_city" ]
     # template_name = "profile_edit.html"
-    
+
     def get_success_url(self):
-        return reverse("profile", kwargs= {"pk": self.object.pk})
+        return reverse("profile", kwargs={"pk": self.object.pk})
+
+
+class PostDetail(DetailView):
+    model = Post
+    template_name = "post_detail.html"
