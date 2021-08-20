@@ -6,12 +6,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     
-  
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+
     <script src="{% static 'scripts/main.js' %}" defer></script>
 
     <title>Wayfarer - {% block title %}{% endblock %}</title> 
@@ -30,11 +33,11 @@
         {% if user.is_authenticated %}
         
         <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <ul class="nav">
+            <li class="nav-item">
             <li class="nav-item">
               <a class="nav-link" href="/">Profile</a>
             </li>
-            <li class="nav-item">
               <a class="nav-link" href="/accounts/logout">Logout</a>
             </li>
           </ul>
@@ -43,20 +46,100 @@
         {% else %}
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="/accounts/login">Sign In</a>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#signin_modal">
+              Sign In
+            </button>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/accounts/signup">Sign Up</a>
+              <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#signup_modal">
+              Sign Up
+              </button>
             </li>
           </ul>
         </div>
-
         {% endif %}
-        
       </div>
     </nav>
+
+    <!-- Sign In Modal -->
+        <div class="modal fade" id="signin_modal" tabindex="-1" aria-labelledby="signin_modal_label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="signin_modal_label">Sign In</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                ....
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <!--  Sign Up Modal -->
+        <div class="modal fade" id="signup_modal" tabindex="-1" aria-labelledby="signup_modal_label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="signup_modal_label">Sign Up</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <form method='post'>
+                    <div class="form-group">
+                      {% csrf_token %}
+                      <label>First Name</label>
+                      <input type="text" class="form-control" name='first_name' autofocus>
+                    </div>
+                    <div class="form-group">
+                      <label>Last Name</label>
+                      <input type="text" class="form-control" name='last_name'>
+                    </div>
+                    <div class="form-group">
+                      <label>Email address</label>
+                      <input type="text" class="form-control" name='email'>
+                    </div>
+                    <div class="form-group">
+                      <label>Password</label>
+                      <input type="password" class="form-control" name='password1'>
+                    </div>
+                    <div class="form-group">
+                      <label>Re-enter Password</label>
+                      <input type="password" class="form-control" name='password2'>
+                    </div>
+                    <div class="form-group">
+                      <label>Username</label>
+                      <input type="text" class="form-control" name='username'>
+                    </div>
+                    <div class="form-group">
+                      <label>Profile Image</label>
+                      <input type="text" class="form-control" name='image'>
+                    </div>
+                    <div class="form-group">
+                      <label>Current City</label>
+                      <input type="text" class="form-control" name='current_city'>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
     {% block content %}
     {% endblock %}
