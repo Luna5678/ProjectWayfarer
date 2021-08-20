@@ -29,7 +29,7 @@
         <h4 class="profile-detail-border py-4 mt-4">My Current City:</h4>
         <p>{{user.profile.current_city}}</p>
         {% comment %} city edit modal {% endcomment %}
-        <button
+          <button
           type="button"
           class="btn btn-secondary"
           data-bs-toggle="modal"
@@ -86,7 +86,7 @@
             <form action="{% url 'edit_name' user.pk %}" method="post">
               <div class="form-group">
                 {% csrf_token %}
-                <div class="form-group">
+                <div class="form-group mb-3">
                   <label>First Name</label>
                   <input
                     type="text"
@@ -95,7 +95,7 @@
                     value="{{user.first_name}}"
                   />
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                   <label>Last Name</label>
                   <input
                     type="text"
@@ -113,8 +113,8 @@
         </div>
       </div>
     </div>
-  </div>
-
+  </div>  
+</div>
   {% comment %} Modal for Currenty city edit {% endcomment %}
   <div
     class="modal fade"
@@ -126,7 +126,9 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="city_edit_modal_label">Edit Your City</h5>
+          <h5 class="modal-title" id="city_edit_modal_label">
+            Change Your City
+          </h5>
           <button
             type="button"
             class="btn-close"
@@ -136,10 +138,10 @@
         </div>
         <div class="modal-body">
           <div class="container">
-            <form action="{% url 'edit_city' profile.pk %}" method="post">
+            <form action="{% url 'edit_city' user.pk %}" method="post">
               <div class="form-group">
                 {% csrf_token %}
-                <div class="form-group">
+                <div class="form-group mb-3">
                   <label>Current City</label>
                   <input
                     type="text"
@@ -148,23 +150,17 @@
                     value="{{profile.current_city}}"
                   />
                 </div>
-<<<<<<< HEAD
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </form>
-=======
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </div>
->>>>>>> dev
         </div>
       </div>
     </div>
   </div>
 </main>
+
+
 
 {% endblock content %}
