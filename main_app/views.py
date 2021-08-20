@@ -8,10 +8,11 @@ from .forms import ProfileForm
 # from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
-from .models import Profile
+from .models import Profile, User
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django import forms
+from django.urls import reverse
+from django.views.generic.edit import UpdateView
 
 
 # Create your views here.
@@ -62,9 +63,22 @@ class ProfileDetail(DetailView):
                 username__icontains=username, user=self.request.user)
         return context
 
-class ProfileEdit(View):
-    def get(self, request):
-        form = ProfileForm()
-        context = {
-            "form": form}
-        return render(request, "signup.html", context)
+class ProfileEdit(UpdateView):
+    form_class = ProfileForm
+    model = Profile
+    template_name = "profile_edit.html"
+    # def get_context_data(self, **kwargs):
+    #     context = super(ProfileEdit, self).get_context_data(**kwargs)
+    #     context['profile'] = Profile.objects.all() #whatever you would like
+    #     return context
+    
+    # model = User
+    # fields = [ "first_name","last_name" ]
+    # template_name = "profile_edit.html"
+    
+        # model = Profile
+    # fields = [ "current_city" ]
+    # template_name = "profile_edit.html"
+    
+    def get_success_url(self):
+        return reverse("profile", kwargs= {"pk": self.object.pk})
