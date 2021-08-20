@@ -1,3 +1,4 @@
+from django.core.checks.messages import Error
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import login, authenticate
@@ -6,9 +7,15 @@ from django.forms import ModelForm
 from .forms import ProfileForm
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
+from django.views.generic import DetailView
+from .models import Profile
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 # Create your views here.
+
+
 class Home(TemplateView):
     template_name = 'base.html'
 
@@ -38,3 +45,18 @@ class Signup(View):
         else:
             form = ProfileForm()
         return render(request, 'registration/signup.html', {'form': form})
+
+
+# GET
+@method_decorator(login_required, name='dispatch')
+class ProfileDetail(DetailView):
+    model = Profile
+    template_name = "profile_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        username = self.request.GET.get("username")
+        if username != None:
+            context["profile"] = Profile.objects.filter(
+                username__icontains=username, user=self.request.user)
+        return context
