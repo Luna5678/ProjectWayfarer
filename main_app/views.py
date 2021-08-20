@@ -84,3 +84,8 @@ class ProfileEdit(UpdateView):
 
     def get_success_url(self):
         return reverse("profile", kwargs={"pk": self.object.pk})
+
+
+class PostDetail(DetailView):
+    model = Post
+    template_name = "post_detail.html"

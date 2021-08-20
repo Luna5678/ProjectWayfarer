@@ -20,7 +20,7 @@
 
 <h2>Your posts:</h2>
 {% for post in posts %}
-<h3>{{ post.title }}</h3>
+<a href="{% url 'post_detail' post.pk %}"><h3>{{ post.title }}</h3></a>
 <p>Author: {{post.author}}</p>
 <p>{{post.content}}</p>
 {% endfor %} {% endblock content %}
