@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Urbanist&display=swap');
 /* Show it is fixed to the top */
 :root {
   --blue:#70D6FF;
@@ -9,7 +10,8 @@
 
 body {
   min-height: 75rem;
-  padding-top: 56px;
+  /* padding-top: 60px; */
+  margin-top: 60px;
   background-image: url(/static/images/memphis-colorful.png);
   background-blend-mode: normal;
   /* background: antiquewhite; */
@@ -22,6 +24,12 @@ main {
 .navbar {
   background-color: #70D6FF;
 }
+
+#nav_title {
+  font-family: Monoton ;
+  color: black;
+}
+
 .bg_image {
   /* background-image: url('../../public/assets/body_bg.png'); */
   height: 100vh;  
