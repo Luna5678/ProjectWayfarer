@@ -1,8 +1,18 @@
 /* Show it is fixed to the top */
+:root {
+  --blue: #70d6ff;
+  -pink: #ff70a6;
+  --orange: #ff9770;
+  --darkyellow: #ffd670;
+  --yellow: #e9ff70;
+}
+
 body {
   min-height: 75rem;
   padding-top: 56px;
-  background-blend-mode: screen;
+  background-image: url(/static/images/memphis-colorful.png);
+  background-blend-mode: normal;
+  /* background: antiquewhite; */
 }
 main {
   width: 100%;
@@ -13,7 +23,7 @@ main {
   background-color: #70d6ff;
 }
 .bg_image {
-  background-image: url("../../public/assets/body_bg.png");
+  /* background-image: url('../../public/assets/body_bg.png'); */
   height: 100vh;
 }
 .card {
