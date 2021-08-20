@@ -12,5 +12,4 @@ class ProfileForm(UserCreationForm):
     image = forms.CharField()
     class Meta:
         model = User
-        # fields = ('username', 'first_name', 'last_name', 'current_city', 'image', 'email', 'password1', 'password2')
-        fields = "__all__"
+        fields = ('username', 'first_name', 'last_name', 'current_city', 'image', 'email', 'password1', 'password2')
