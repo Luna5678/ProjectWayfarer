@@ -1,10 +1,10 @@
 /* Show it is fixed to the top */
 :root {
-  --blue:#70D6FF;
-  -pink: #FF70A6;
-  --orange: #FF9770;
-  --darkyellow: #FFD670;
-  --yellow: #E9FF70;
+  --blue: #70d6ff;
+  --pink: #ff70a6;
+  --orange: #ff9770;
+  --darkyellow: #ffd670;
+  --yellow: #e9ff70;
 }
 
 body {
@@ -12,45 +12,59 @@ body {
   padding-top: 56px;
   background-image: url(/static/images/memphis-colorful.png);
   background-blend-mode: normal;
-  /* background: antiquewhite; */
 }
+
 main {
   width: 100%;
   max-width: 1000px;
-  margin:auto;
+  margin: auto;
+  background-color: white;
 }
 .navbar {
-  background-color: #70D6FF;
+  background-color: #70d6ff;
 }
+
 .bg_image {
   /* background-image: url('../../public/assets/body_bg.png'); */
-  height: 100vh;  
+  height: 100vh;
 }
 .card {
   text-align: center;
 }
 
 .card-body {
-  background-color: #FF70A6;
+  background-color: #ff70a6;
 }
 .card-header {
-  background-color: #E9FF70;
+  background-color: #e9ff70;
 }
 .carousel-item {
   max-height: 50vh;
-
 }
 #carouselID .carousel-item img {
   object-fit: cover;
   object-position: center;
   overflow: hidden;
-  
 }
 .card_image {
-  width:100%;
+  width: 100%;
   max-width: 350px;
   margin: auto;
 }
 #homepage_welcome {
   text-align: center;
+}
+
+/* === Profile Detail Page === */
+#profile-detail-img {
+  max-width: 15rem;
+}
+
+#profile-detail-heading {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.container.profile-detail {
+  background-color: white;
 }
