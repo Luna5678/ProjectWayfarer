@@ -17,6 +17,7 @@ body {
 }
 
 main {
+  font-family: Urbanist;
   width: 100%;
   max-width: 1000px;
   margin: auto;
