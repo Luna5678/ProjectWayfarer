@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Urbanist&display=swap');
 /* Show it is fixed to the top */
 :root {
   --blue: #70d6ff;
@@ -9,7 +10,8 @@
 
 body {
   min-height: 75rem;
-  padding-top: 56px;
+  /* padding-top: 60px; */
+  margin-top: 60px;
   background-image: url(/static/images/memphis-colorful.png);
   background-blend-mode: normal;
 }
@@ -22,6 +24,11 @@ main {
 }
 .navbar {
   background-color: #70d6ff;
+}
+
+#nav_title {
+  font-family: Monoton ;
+  color: black;
 }
 
 .bg_image {
@@ -67,4 +74,22 @@ main {
 
 .container.profile-detail {
   background-color: white;
+}
+
+.col-lg-7 {
+  border-left: 5px var(--pink) dotted;
+}
+
+.profile-detail-border {
+  border-top: 5px var(--pink) dotted;
+}
+
+.profile-post-container {
+  border-bottom: 5px var(--pink) dotte;
+}
+
+/* === Post Detail Page === */
+#post-detail-heading {
+  text-align: center;
+  border-bottom: 5px var(--yellow) dotted;
 }
