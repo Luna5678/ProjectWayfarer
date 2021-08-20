@@ -7,42 +7,48 @@ body {
 main {
   width: 100%;
   max-width: 1000px;
-  margin:auto;
+  margin: auto;
 }
 .navbar {
-  background-color: #70D6FF;
+  background-color: #70d6ff;
 }
 .bg_image {
-  background-image: url('../../public/assets/body_bg.png');
+  background-image: url("../../public/assets/body_bg.png");
   height: 100vh;
-  
 }
 .card {
   text-align: center;
 }
 
 .card-body {
-  background-color: #FF70A6;
+  background-color: #ff70a6;
 }
 .card-header {
-  background-color: #E9FF70;
+  background-color: #e9ff70;
 }
 .carousel-item {
   max-height: 50vh;
-
 }
 #carouselID .carousel-item img {
   object-fit: cover;
   object-position: center;
   overflow: hidden;
-  
 }
 .card_image {
-  width:100%;
+  width: 100%;
   max-width: 350px;
   margin: auto;
 }
 #homepage_welcome {
   text-align: center;
-  
+}
+
+/* Profile Detail Page */
+#profile-detail-img {
+  max-width: 15rem;
+}
+
+#profile-detail-heading {
+  text-align: center;
+  padding: 20px 0;
 }
