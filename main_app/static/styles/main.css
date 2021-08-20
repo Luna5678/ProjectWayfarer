@@ -68,3 +68,8 @@ main {
 .container.profile-detail {
   background-color: white;
 }
+
+/* === Post Detail Page === */
+#post-detail-heading {
+  text-align: center;
+}
