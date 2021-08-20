@@ -1,16 +1,17 @@
-from django.core.checks.messages import Error
+# from django.core.checks.messages import Error
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.models import User
-from django.forms import ModelForm
+# from django.contrib.auth.models import User
+# from django.forms import ModelForm
 from .forms import ProfileForm
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
 from .models import Profile
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django import forms
 
 
 # Create your views here.
