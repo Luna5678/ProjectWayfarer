@@ -44,9 +44,11 @@ class Signup(View):
                                     password=raw_password)
                 login(request, user)
                 return redirect('home')
+            else: 
+                return render(request, "home.html", {'form': form})
         else:
             form = ProfileForm()
-        return render(request, 'registration/signup.html', {'form': form})
+            return render(request, 'home.html', {'form': form})
 
 
 # GET
