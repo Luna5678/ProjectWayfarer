@@ -16,4 +16,11 @@
 <button><a href="{% url 'edit' user.pk %}">Edit Profile</a></button>
 {% else %}
 <p>error</p>
-{% endif %} {% endblock content %}
+{% endif %}
+
+<h2>Your posts:</h2>
+{% for post in posts %}
+<a href="{% url 'post_detail' post.pk %}"><h3>{{ post.title }}</h3></a>
+<p>Author: {{post.author}}</p>
+<p>{{post.content}}</p>
+{% endfor %} {% endblock content %}
