@@ -1,5 +1,48 @@
 /* Show it is fixed to the top */
 body {
   min-height: 75rem;
-  padding-top: 4.5rem;
+  padding-top: 56px;
+  background-blend-mode: screen;
+}
+main {
+  width: 100%;
+  max-width: 1000px;
+  margin:auto;
+}
+.navbar {
+  background-color: #70D6FF;
+}
+.bg_image {
+  background-image: url('../../public/assets/body_bg.png');
+  height: 100vh;
+  
+}
+.card {
+  text-align: center;
+}
+
+.card-body {
+  background-color: #FF70A6;
+}
+.card-header {
+  background-color: #E9FF70;
+}
+.carousel-item {
+  max-height: 50vh;
+
+}
+#carouselID .carousel-item img {
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  
+}
+.card_image {
+  width:100%;
+  max-width: 350px;
+  margin: auto;
+}
+#homepage_welcome {
+  text-align: center;
+  
 }
