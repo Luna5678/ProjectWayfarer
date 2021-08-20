@@ -1,8 +1,18 @@
 /* Show it is fixed to the top */
+:root {
+  --blue:#70D6FF;
+  -pink: #FF70A6;
+  --orange: #FF9770;
+  --darkyellow: #FFD670;
+  --yellow: #E9FF70;
+}
+
 body {
   min-height: 75rem;
   padding-top: 56px;
-  background-blend-mode: screen;
+  background-image: url(/static/images/memphis-colorful.png);
+  background-blend-mode: normal;
+  /* background: antiquewhite; */
 }
 main {
   width: 100%;
@@ -13,9 +23,8 @@ main {
   background-color: #70D6FF;
 }
 .bg_image {
-  background-image: url('../../public/assets/body_bg.png');
-  height: 100vh;
-  
+  /* background-image: url('../../public/assets/body_bg.png'); */
+  height: 100vh;  
 }
 .card {
   text-align: center;
@@ -44,5 +53,4 @@ main {
 }
 #homepage_welcome {
   text-align: center;
-  
 }
