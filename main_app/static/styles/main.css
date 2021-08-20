@@ -75,3 +75,21 @@ main {
 .container.profile-detail {
   background-color: white;
 }
+
+.col-lg-7 {
+  border-left: 5px var(--pink) dotted;
+}
+
+.profile-detail-border {
+  border-top: 5px var(--pink) dotted;
+}
+
+.profile-post-container {
+  border-bottom: 5px var(--pink) dotte;
+}
+
+/* === Post Detail Page === */
+#post-detail-heading {
+  text-align: center;
+  border-bottom: 5px var(--yellow) dotted;
+}

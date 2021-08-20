@@ -25,8 +25,8 @@
         >
           Edit Full Name
         </button>
-        <hr>
-        <h4>My Current City:</h4>
+
+        <h4 class="profile-detail-border py-4 mt-4">My Current City:</h4>
         <p>{{user.profile.current_city}}</p>
         {% comment %} city edit modal {% endcomment %}
         <button
@@ -37,22 +37,26 @@
         >
           Edit Current City
         </button>
-        <hr>
-        <h4>Join Date:</h4>
+
+        <h4 class="profile-detail-border py-4 mt-4">Join Date:</h4>
         <p>{{user.date_joined}}</p>
         {% else %}
         <p>error</p>
         {% endif %}
       </div>
 
-    <div class="col-lg-7">
-      <h4>Your posts:</h4>
-      {% for post in posts %}
-      <a href="{% url 'post_detail' post.pk %}"><h3>{{ post.title }}</h3></a>
-      <p>Author: {{post.author}}</p>
-      <p>{{post.content}}</p>
-        <hr>
-      {% endfor %}
+      <div class="col-lg-7">
+        <h4>Your posts:</h4>
+        {% for post in posts %}
+        <div class="profile-post-container">
+          <a href="{% url 'post_detail' post.pk %}"
+            ><h3>{{ post.title }}</h3></a
+          >
+          <p>Author: {{post.author}}</p>
+          <p>{{post.content}}</p>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 
