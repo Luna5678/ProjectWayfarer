@@ -1,7 +1,7 @@
 /* Show it is fixed to the top */
 :root {
   --blue: #70d6ff;
-  -pink: #ff70a6;
+  --pink: #ff70a6;
   --orange: #ff9770;
   --darkyellow: #ffd670;
   --yellow: #e9ff70;
@@ -12,16 +12,18 @@ body {
   padding-top: 56px;
   background-image: url(/static/images/memphis-colorful.png);
   background-blend-mode: normal;
-  /* background: antiquewhite; */
 }
+
 main {
   width: 100%;
   max-width: 1000px;
   margin: auto;
+  background-color: white;
 }
 .navbar {
   background-color: #70d6ff;
 }
+
 .bg_image {
   /* background-image: url('../../public/assets/body_bg.png'); */
   height: 100vh;
@@ -53,7 +55,7 @@ main {
   text-align: center;
 }
 
-/* Profile Detail Page */
+/* === Profile Detail Page === */
 #profile-detail-img {
   max-width: 15rem;
 }
@@ -61,4 +63,8 @@ main {
 #profile-detail-heading {
   text-align: center;
   padding: 20px 0;
+}
+
+.container.profile-detail {
+  background-color: white;
 }
