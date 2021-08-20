@@ -64,9 +64,9 @@ class ProfileDetail(DetailView):
         return context
 
 class ProfileEdit(UpdateView):
-    form_class = ProfileForm
-    model = Profile
-    template_name = "profile_edit.html"
+    # form_class = ProfileForm
+    # model = Profile
+    # template_name = "profile_edit.html"
     # def get_context_data(self, **kwargs):
     #     context = super(ProfileEdit, self).get_context_data(**kwargs)
     #     context['profile'] = Profile.objects.all() #whatever you would like
@@ -76,9 +76,9 @@ class ProfileEdit(UpdateView):
     # fields = [ "first_name","last_name" ]
     # template_name = "profile_edit.html"
     
-        # model = Profile
-    # fields = [ "current_city" ]
-    # template_name = "profile_edit.html"
+    model = Profile
+    fields = [ "first_name", "last_name", "current_city" ]
+    template_name = "profile_edit.html"
     
     def get_success_url(self):
         return reverse("profile", kwargs= {"pk": self.object.pk})

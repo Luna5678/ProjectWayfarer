@@ -121,7 +121,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Login Success URL 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/profile/<int:pk>/'
 
 # Logout Success URL
 LOGOUT_REDIRECT_URL = '/'
