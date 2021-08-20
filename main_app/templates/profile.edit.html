@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% block content %} 
+
+{% if user.is_authenticated %}
+<h1>Edit Your Profile</h1>
+
+<form action="" method="">
+  <div class="form-group">
+      {% csrf_token %}
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" name='username' >
+      </div>
+      <div class="form-group">
+        <label>Current City</label>
+        <input type="text" class="form-control" name='current_city'>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% else %}
+<p>error</p>
+{% endif %} {% endblock content %}

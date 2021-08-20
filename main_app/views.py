@@ -60,3 +60,10 @@ class ProfileDetail(DetailView):
             context["profile"] = Profile.objects.filter(
                 username__icontains=username, user=self.request.user)
         return context
+
+class ProfileEdit(View):
+    def get(self, request):
+        form = ProfileForm()
+        context = {
+            "form": form}
+        return render(request, "signup.html", context)
