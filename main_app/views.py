@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse
 from django.views.generic.edit import UpdateView
-
+from django.contrib.auth.views import LoginView
 
 # Create your views here.
 
@@ -66,9 +66,9 @@ class ProfileDetail(DetailView):
 
 
 class ProfileEdit(UpdateView):
-    form_class = ProfileForm
-    model = Profile
-    template_name = "profile_edit.html"
+    # form_class = ProfileForm
+    # model = Profile
+    # template_name = "profile_edit.html"
     # def get_context_data(self, **kwargs):
     #     context = super(ProfileEdit, self).get_context_data(**kwargs)
     #     context['profile'] = Profile.objects.all() #whatever you would like
@@ -89,3 +89,8 @@ class ProfileEdit(UpdateView):
 class PostDetail(DetailView):
     model = Post
     template_name = "post_detail.html"
+
+
+class ProfileRedirect(View):
+    def get(self, request):
+        return redirect(f'/profile/{request.user.profile.pk}')
