@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Urbanist&display=swap');
+/* === Global === */
+
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Urbanist&display=swap");
 /* Show it is fixed to the top */
 :root {
   --blue: #70d6ff;
@@ -10,7 +12,6 @@
 
 body {
   min-height: 75rem;
-  /* padding-top: 60px; */
   margin-top: 60px;
   background-image: url(/static/images/memphis-colorful.png);
   background-blend-mode: normal;
@@ -23,19 +24,61 @@ main {
   margin: auto;
   background-color: white;
 }
+
+.btn {
+  border-radius: 0 !important;
+  background-color: white;
+  color: black;
+  transition: 0.3s !important;
+}
+
+.button-hover:hover {
+  box-shadow: 5px 5px black;
+  color: black;
+}
+
+.pri-button {
+  background-color: var(--blue);
+}
+
+.edit-button {
+  background-color: var(--orange);
+}
+
+.cancel-button {
+  background-color: #d7d7d7;
+}
+
+.cta-link {
+  display: inline-block;
+  background-color: var(--yellow);
+  color: black;
+  text-decoration: none;
+  padding-top: 7px;
+  transition: 0.3s;
+}
+
+.cta-link:hover {
+  background-color: white;
+  text-decoration: underline;
+  color: black;
+}
+
+/* === Base html === */
+
 .navbar {
   background-color: #70d6ff;
 }
 
 #nav_title {
-  font-family: Monoton ;
+  font-family: Monoton;
   color: black;
 }
 
 .bg_image {
-  /* background-image: url('../../public/assets/body_bg.png'); */
   height: 100vh;
 }
+
 .card {
   text-align: center;
 }
@@ -43,27 +86,33 @@ main {
 .card-body {
   background-color: #ff70a6;
 }
+
 .card-header {
   background-color: #e9ff70;
 }
+
 .carousel-item {
   max-height: 50vh;
 }
+
 #carouselID .carousel-item img {
   object-fit: cover;
   object-position: center;
   overflow: hidden;
 }
+
 .card_image {
   width: 100%;
   max-width: 350px;
   margin: auto;
 }
+
 #homepage_welcome {
   text-align: center;
 }
 
 /* === Profile Detail Page === */
+
 #profile-detail-img {
   max-width: 15rem;
 }
@@ -90,6 +139,7 @@ main {
 }
 
 /* === Post Detail Page === */
+
 #post-detail-heading {
   text-align: center;
   border-bottom: 5px var(--yellow) dotted;
