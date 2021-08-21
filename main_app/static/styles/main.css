@@ -71,6 +71,11 @@ main {
   background-color: #70d6ff;
 }
 
+#navbar_hamburger:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 #nav_title {
   font-family: Monoton, sans-serif;
   color: black;
