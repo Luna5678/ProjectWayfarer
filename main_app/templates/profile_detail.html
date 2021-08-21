@@ -19,7 +19,7 @@
         <p>{{user.last_name}}</p>
         <button
           type="button"
-          class="btn btn-secondary"
+          class="border-dark border-2 px-3 py-2 button-hover edit-button"
           data-bs-toggle="modal"
           data-bs-target="#name_edit_modal"
         >
@@ -31,7 +31,7 @@
         {% comment %} city edit modal {% endcomment %}
           <button
           type="button"
-          class="btn btn-secondary"
+          class="border-dark border-2 px-3 py-2 button-hover edit-button"
           data-bs-toggle="modal"
           data-bs-target="#city_edit_modal"
         >
@@ -106,8 +106,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="border-dark border-2 px-3 py-2 button-hover cancel-button" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="border-dark border-2 px-3 py-2 button-hover edit-button">Submit</button>
             </div>
           </form>
         </div>
@@ -152,7 +152,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="border-dark border-2 px-3 py-2 button-hover cancel-button" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="border-dark border-2 px-3 py-2 button-hover edit-button">Submit</button>
             </div>
           </form>
         </div>

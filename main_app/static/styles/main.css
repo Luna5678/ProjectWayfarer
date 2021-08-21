@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Urbanist&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Urbanist&display=swap");
 /* Show it is fixed to the top */
 :root {
   --blue: #70d6ff;
@@ -23,12 +23,26 @@ main {
   margin: auto;
   background-color: white;
 }
+
+.button-hover:hover {
+  box-shadow: 5px 5px black;
+}
+
+.btn {
+  border-radius: 0 !important;
+  background-color: white;
+}
+
+.pri-button {
+  background-color: var(--blue);
+}
+
 .navbar {
   background-color: #70d6ff;
 }
 
 #nav_title {
-  font-family: Monoton ;
+  font-family: Monoton;
   color: black;
 }
 
@@ -87,6 +101,14 @@ main {
 
 .profile-post-container {
   border-bottom: 5px var(--pink) dotted;
+}
+
+.edit-button {
+  background-color: var(--orange);
+}
+
+.cancel-button {
+  background-color: #d7d7d7;
 }
 
 /* === Post Detail Page === */
