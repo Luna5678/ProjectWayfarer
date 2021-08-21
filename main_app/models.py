@@ -31,15 +31,14 @@ class Profile(models.Model):
 
 
 class Post(models.Model):
+    author = ForeignKey(Profile, on_delete=models.CASCADE, related_name='posts')
     title = CharField(max_length=60)
     content = TextField(max_length=500)
     created_at = DateTimeField(auto_now_add=True)
-    author = CharField(max_length=50)
-    # author = ForeignKey(Profile, on_delete=models.CASCADE,
-    #                     related_name='profiles')
-    location = CharField(max_length=50)
-    # location = ForeignKey(
-    #     Location, on_delete=models.CASCADE, related_name='locations')
+    location = ForeignKey(Location, on_delete=models.CASCADE, related_name='locations')
+
+    def __str__(self):
+        return f"{self.pk} - {self.author.username}"
 
     class Meta:
         ordering = ['created_at']
