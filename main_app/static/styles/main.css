@@ -1,6 +1,7 @@
 /* === Global === */
 
-@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Urbanist&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Urbanist:wght@400;600&display=swap');
+
 /* Show it is fixed to the top */
 :root {
   --blue: #70d6ff;
@@ -12,13 +13,13 @@
 
 body {
   min-height: 75rem;
-  margin-top: 60px;
+  margin-top: 76px;
   background-image: url(/static/images/memphis-colorful.png);
   background-blend-mode: normal;
 }
 
 main {
-  font-family: Urbanist;
+  font-family: Urbanist, sans-serif;
   width: 100%;
   max-width: 1000px;
   margin: auto;
@@ -26,7 +27,7 @@ main {
 }
 
 .btn {
-  border-radius: 0 !important;
+  border-radius: 3px !important;
   background-color: white;
   color: black;
   transition: 0.3s !important;
@@ -70,9 +71,16 @@ main {
   background-color: #70d6ff;
 }
 
+#navbar_hamburger:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 #nav_title {
-  font-family: Monoton;
+  font-family: Monoton, sans-serif;
   color: black;
+  margin-bottom: 0px;
+  padding-left: 10px !important;
 }
 
 .bg_image {
@@ -85,6 +93,14 @@ main {
 
 .card-body {
   background-color: #ff70a6;
+}
+
+#card_one {
+  border-radius: 0 0 0 3px;
+}
+
+#card_three {
+  border-radius: 0 0 3px 0;
 }
 
 .card-header {
@@ -113,6 +129,11 @@ main {
 
 /* === Profile Detail Page === */
 
+.profile_page {
+  border: 5px dotted var(--pink);
+  border-radius: 3px;
+}
+
 #profile-detail-img {
   max-width: 15rem;
 }
@@ -120,10 +141,12 @@ main {
 #profile-detail-heading {
   text-align: center;
   padding: 20px 0;
+  margin-top: 10px;
 }
 
 .container.profile-detail {
   background-color: white;
+  padding: 10px;
 }
 
 .col-lg-7 {
@@ -144,3 +167,40 @@ main {
   text-align: center;
   border-bottom: 5px var(--yellow) dotted;
 }
+
+/* === Sign In Modal === */
+
+#signin_header {
+  background-color: var(--yellow);
+}
+
+#signin_modal_label {
+  font-family: Urbanist, sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#signin_form {
+  font-family: Urbanist, sans-serif;
+  font-size: 20px;
+}
+
+/* === Sign Up Modal === */
+
+#signup_header {
+  background-color: var(--orange);
+}
+
+#signup_modal_label {
+  font-family: Urbanist, sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#signup_form {
+  font-family: Urbanist, sans-serif;
+  font-size: 20px;
+}
+
+
+
