@@ -1,58 +1,59 @@
 {% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
 <main>
-  <h1 id="profile-detail-heading">{{user.first_name}} {{user.last_name}}'s Profile</h1>
+  <div class="profile_page">
+    <h1 id="profile-detail-heading">{{user.first_name}} {{user.last_name}}'s Profile</h1>
 
-  <div class="container profile-detail pb-4 px-5">
-    <div class="row">
-      <div class="col-lg-5">
-       
-        <img
-          src="{{user.profile.image}}"
-          alt="Your profile image"
-          id="profile-detail-img"
-        />
-        <h4><strong><br>@{{user.username}}</strong></h4>
-        <p><br></p>
-        <h4>Hi, my name is <strong>{{user.first_name}} {{user.last_name}}</strong></h4><br>
-        <button
-          type="button"
-          class="btn border-dark border-2 px-3 py-2 button-hover edit-button"
-          data-bs-toggle="modal"
-          data-bs-target="#name_edit_modal"
-        >
-          Edit Full Name
-        </button>
-
-        <h4 class="profile-detail-border py-4 mt-4"><strong>My Current City:</strong></h4>
-        <p><strong>{{user.profile.current_city}}</strong></p>
-        {% comment %} city edit modal {% endcomment %}
+    <div class="container profile-detail pb-4 px-5">
+      <div class="row">
+        <div class="col-lg-5">
+          <img
+            src="{{user.profile.image}}"
+            alt="Your profile image"
+            id="profile-detail-img"
+          />
+          <h4><strong><br>@{{user.username}}</strong></h4>
+          <p><br></p>
+          <h4>Hi, my name is <strong>{{user.first_name}} {{user.last_name}}</strong></h4><br>
           <button
-          type="button"
-          class="btn border-dark border-2 px-3 py-2 button-hover edit-button"
-          data-bs-toggle="modal"
-          data-bs-target="#city_edit_modal"
-        >
-          Edit Current City
-        </button>
-
-        <h4 class="profile-detail-border py-4 mt-4">Join Date:</h4>
-        <p><strong>{{user.date_joined}}</strong></p>
-        {% else %}
-        <p>error</p>
-        {% endif %}
-      </div>
-
-      <div class="col-lg-7">
-        <h4>My posts:</h4>
-        {% for post in posts %}
-        <div class="profile-post-container">
-          <a href="{% url 'post_detail' post.pk %}" class="cta-link"
-            ><h3>{{ post.title }}</h3></a
+            type="button"
+            class="btn border-dark border-2 px-3 py-2 button-hover edit-button"
+            data-bs-toggle="modal"
+            data-bs-target="#name_edit_modal"
           >
-          <p>Author: {{post.author}}</p>
-          <p>{{post.content}}</p>
+            Edit Full Name
+          </button>
+
+          <h4 class="profile-detail-border py-4 mt-4"><strong>My Current City:</strong></h4>
+          <p><strong>{{user.profile.current_city}}</strong></p>
+          {% comment %} city edit modal {% endcomment %}
+            <button
+            type="button"
+            class="btn border-dark border-2 px-3 py-2 button-hover edit-button"
+            data-bs-toggle="modal"
+            data-bs-target="#city_edit_modal"
+          >
+            Edit Current City
+          </button>
+
+          <h4 class="profile-detail-border py-4 mt-4"><b>Join Date:</b></h4>
+          <p><strong>{{user.date_joined}}</strong></p>
+          {% else %}
+          <p>error</p>
+          {% endif %}
         </div>
-        {% endfor %}
+
+        <div class="col-lg-7">
+          <h4><b>My posts:</b></h4>
+          {% for post in posts %}
+          <div class="profile-post-container">
+            <a href="{% url 'post_detail' post.pk %}" class="cta-link"
+              ><h3>{{ post.title }}</h3></a
+            >
+            <p><b>Author:</b> {{post.author}}</p>
+            <p>{{post.content}}</p>
+          </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
