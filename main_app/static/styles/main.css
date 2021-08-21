@@ -129,6 +129,11 @@ main {
 
 /* === Profile Detail Page === */
 
+.profile_page {
+  border: 5px dotted var(--pink);
+  border-radius: 3px;
+}
+
 #profile-detail-img {
   max-width: 15rem;
 }
@@ -136,10 +141,12 @@ main {
 #profile-detail-heading {
   text-align: center;
   padding: 20px 0;
+  margin-top: 10px;
 }
 
 .container.profile-detail {
   background-color: white;
+  padding: 10px;
 }
 
 .col-lg-7 {
