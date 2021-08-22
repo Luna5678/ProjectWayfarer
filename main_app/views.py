@@ -8,7 +8,7 @@ from .forms import ProfileForm
 # from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
-from .models import Profile, User, Post
+from .models import Profile, User, Post, City
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse
@@ -89,9 +89,10 @@ class ProfileRedirect(View):
         return redirect(f'/profile/{request.user.profile.pk}')
 
 class Cities(TemplateView):
+    model = City
     template_name = "cities.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["cities"] = Cities.objects.all()
+        context["cities"] = City.objects.all()
         return context

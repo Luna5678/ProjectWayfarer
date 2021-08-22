@@ -9,24 +9,20 @@
 <div class="container-fluid col-11" id='city_container'>
   <div class="row g-2" id="city_row">
 
+<!-- Left side of page for cities -->
+
     <div class="col-sm-4 p-5 rounded-start" id="all_cities">
       <h1>Cities</h1>
       <div class="list-group">
+        {% for city in cities %}
         <a href="#" class="list-group-item list-group-item-action active">
-          <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> San Francisco
+          <img src="{{ city.image }}" class="img-thumbnail" alt="..."> {{ city.city}}
         </a>
-        <a href="#" class="list-group-item list-group-item-action">
-          <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> London
-        </a>
-        <a href="#" class="list-group-item list-group-item-action">
-          <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Seattle
-        </a>
-        <a href="#" class="list-group-item list-group-item-action">
-          <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Sydney
-        </a>
+        {% endfor %}
       </div>
     </div>
 
+<!-- right side of page for current city -->
     <div class="col-sm-8 p-5 rounded-end" id="display_city">
       <div class="row">
         <div class="col-8 col-sm-12">
@@ -45,28 +41,19 @@
               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
             </svg>
           </a>
-        
         </div>
 
+<!-- Right side of page for all city post -->
         <div class="col-4 col-sm-12">
           
           <div class="container">
             <div class="list-group all_cities_txt">
+              {% for city in cities %}
+              <h1> {{ cities.objects.all }}</h1>
               <a href="#" class="list-group-item list-group-item-action">
-                <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Post Title
+                <img src="{{ post.image }}" class="img-thumbnail" alt="..."> Post Title
               </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Post Title
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Post Title
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Post Title
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Post Title
-              </a>
+              {% endfor %}
 
             </div>
           </div>
