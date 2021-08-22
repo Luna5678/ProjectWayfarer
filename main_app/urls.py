@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-from .views import Signup, Home, ProfileDetail, NameProfileEdit, PostDetail, CityProfileEdit, ProfileRedirect
+from .views import Signup, Home, ProfileDetail, NameProfileEdit, PostDetail, CityProfileEdit, ProfileRedirect, Cities
 
 
 urlpatterns = [
@@ -12,4 +12,5 @@ urlpatterns = [
     path('profile/<int:pk>/name/edit', NameProfileEdit.as_view(), name='edit_name'),
     path('profile/<int:pk>/city/edit', CityProfileEdit.as_view(), name='edit_city'),
     path('post/<int:pk>', PostDetail.as_view(), name='post_detail'),
+    path('cities/<int:pk>', Cities.as_view(), name='cities'),
 ]
