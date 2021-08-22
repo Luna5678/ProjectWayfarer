@@ -203,5 +203,38 @@ main {
   font-size: 20px;
 }
 
+#all_cities {
+ background-color: var(--orange);
+ height: 100vh;
 
+}
+#all_cities img {
+  max-width: 75px;
+  font-size: 30px;
+}
 
+#display_city {
+ background-color: var(--pink)
+}
+
+.all_cities_txt img {
+  max-width: 120px;
+}
+.all_cities_txt {
+  font-size: 40px;
+}
+
+#city_container {
+  margin-top: 100px;
+  column-gap: 20px;
+}
+
+#new_post_button {
+  color: var(--blue);
+  transition: 0.3s;
+}
+
+#new_post_button:hover {
+  color: var(--yellow);
+  transform: scale(1.3);
+}

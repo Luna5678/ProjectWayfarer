@@ -4,6 +4,86 @@
 
 {% block content %} 
 {% if user.is_authenticated %}
-<h1>Cities Page</h1>
+
+
+<div class="container-fluid col-11" id='city_container'>
+  <div class="row g-2" id="city_row">
+
+    <div class="col-sm-4 p-5 rounded-start" id="all_cities">
+      <h1>Cities</h1>
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active">
+          <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> San Francisco
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> London
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Seattle
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Sydney
+        </a>
+      </div>
+    </div>
+
+    <div class="col-sm-8 p-5 rounded-end" id="display_city">
+      <div class="row">
+        <div class="col-8 col-sm-12">
+          
+          <div class="container">
+            <img src="https://d3qvqlc701gzhm.cloudfront.net/thumbs/1e762419597366200bfdafa615e365d9683633fe81a56da25e96cd501abfac49-750.jpg" class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
+            <h1>San Francisco</h1>
+            <h3>United States</h3>
+          </div>
+        </div>
+
+        <div class="container d-flex align-items-center justify-content-between px-5">
+          <h1>Posts</h1>
+          <a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16" id='new_post_button'>
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+            </svg>
+          </a>
+        
+        </div>
+
+        <div class="col-4 col-sm-12">
+          
+          <div class="container">
+            <div class="list-group all_cities_txt">
+              <a href="#" class="list-group-item list-group-item-action">
+                <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Post Title
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Post Title
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Post Title
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Post Title
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">
+                <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Post Title
+              </a>
+
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+  
+
+
+
+
+
+
 {% endif %}
 {% endblock content %}
+
