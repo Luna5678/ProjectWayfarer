@@ -41,8 +41,10 @@ class Post(models.Model):
     title = models.CharField(max_length=60, blank=False)
     content = models.TextField(max_length=1000, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='posts')
-    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='posts')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='city_posts')
+    # author = models.CharField(max_length=60, blank=False)
+    # city = models.CharField(max_length=60, blank=False)
 
     class Meta:
         ordering = ['-created_at']
