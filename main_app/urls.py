@@ -14,4 +14,5 @@ urlpatterns = [
     path('post/<int:pk>/', PostDetail.as_view(), name='post_detail'),
     path('cities/', Cities.as_view(), name='cities'),
     path('cities/post/', CityPost.as_view(), name='city_post'),
+    path('cities/<int:pk>/', Cities.as_view(), name='city_detail'),
 ]
