@@ -7,10 +7,10 @@ from .views import Signup, Home, ProfileDetail, NameProfileEdit, PostDetail, Cit
 urlpatterns = [
     path('accounts/signup/', Signup.as_view(), name='signup'),
     path('profile/', ProfileRedirect.as_view(), name='profile_redirect'),
-    path('', Home.as_view(), name='home'),
+    path('', Home.as_view(), name='home.html'),
     path('profile/<int:pk>/', ProfileDetail.as_view(), name='profile'),
     path('profile/<int:pk>/name/edit', NameProfileEdit.as_view(), name='edit_name'),
     path('profile/<int:pk>/city/edit', CityProfileEdit.as_view(), name='edit_city'),
     path('post/<int:pk>', PostDetail.as_view(), name='post_detail'),
-    path('cities/<int:pk>', Cities.as_view(), name='cities'),
+    path('cities/', Cities.as_view(), name='cities'),
 ]

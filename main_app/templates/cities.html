@@ -1,0 +1,9 @@
+{% extends 'base.html' %} 
+
+{% block title %}Cities{% endblock  %} 
+
+{% block content %} 
+{% if user.is_authenticated %}
+<h1>Cities Page</h1>
+{% endif %}
+{% endblock content %}

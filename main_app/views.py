@@ -87,3 +87,6 @@ class PostDetail(DetailView):
 class ProfileRedirect(View):
     def get(self, request):
         return redirect(f'/profile/{request.user.profile.pk}')
+
+class Cities(TemplateView):
+    template_name = "cities.html"
