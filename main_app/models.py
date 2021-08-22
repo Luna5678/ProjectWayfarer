@@ -43,8 +43,6 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='city_posts')
-    # author = models.CharField(max_length=60, blank=False)
-    # city = models.CharField(max_length=60, blank=False)
 
     class Meta:
         ordering = ['-created_at']
