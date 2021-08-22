@@ -204,9 +204,8 @@ main {
 }
 
 #all_cities {
- background-color: var(--orange);
- height: 100vh;
-
+background-color: var(--orange);
+height: 100vh;
 }
 #all_cities img {
   max-width: 75px;

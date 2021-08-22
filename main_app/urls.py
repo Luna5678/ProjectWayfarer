@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-from .views import Signup, Home, ProfileDetail, NameProfileEdit, PostDetail, CityProfileEdit, ProfileRedirect, Cities
+from .views import Signup, Home, ProfileDetail, NameProfileEdit, PostDetail, CityProfileEdit, ProfileRedirect, Cities, CityPost
 
 
 urlpatterns = [
@@ -11,6 +11,7 @@ urlpatterns = [
     path('profile/<int:pk>/', ProfileDetail.as_view(), name='profile'),
     path('profile/<int:pk>/name/edit', NameProfileEdit.as_view(), name='edit_name'),
     path('profile/<int:pk>/city/edit', CityProfileEdit.as_view(), name='edit_city'),
-    path('post/<int:pk>', PostDetail.as_view(), name='post_detail'),
+    path('post/<int:pk>/', PostDetail.as_view(), name='post_detail'),
     path('cities/', Cities.as_view(), name='cities'),
+    path('cities/post/', CityPost.as_view(), name='city_post'),
 ]
