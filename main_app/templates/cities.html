@@ -40,12 +40,18 @@
 
         <div class="container d-flex align-items-center justify-content-between px-5">
           <h1>Posts</h1>
-          <a href="">
-            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16" id='new_post_button'>
+          <!-- Post modal trigger -->
+          <button
+            type="button"
+            class="px-3 py-2 button-hover mx-2 btn"
+            data-bs-toggle="modal"
+            data-bs-target="#post_city_modal"
+            id="post_city_button"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16" id='new_post_button'>
               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-            </svg>
-          </a>
-        
+              </svg>
+          </button>
         </div>
 
         <div class="col-4 col-sm-12">
@@ -67,17 +73,76 @@
               <a href="#" class="list-group-item list-group-item-action">
                 <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="img-thumbnail" alt="..."> Post Title
               </a>
-
             </div>
           </div>
-          
         </div>
       </div>
     </div>
-
   </div>
 </div>
-  
+
+<!-- Post modal -->
+<div
+      class="modal fade"
+      id="post_city_modal"
+      tabindex="-1"
+      aria-labelledby="post_city_modal_label"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" id="post_city_header">
+            <h5 class="modal-title" id="post_city_modal_label"><b>Create New Post!</b></h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <form action="" method="post" id="post_city_form">
+                <div class="mb-3">
+                  {% csrf_token %}
+                  <label>City</label>
+                  <select class="form-select" id="post_city_select" aria-label="Floating label select example" autofocus>
+                    <option value="London">London</option>
+                    <option value="Sydney">Sydney</option>
+                    <option value="San Fracisco">San Francisco</option>
+                    <option value="Seattle">Seattle</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label>Title</label>
+                  <input type="text" class="form-control" name="city_title" />
+                </div>
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="city_context"></textarea>
+                  <label for="city_context">Got any tips?</label>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="submit"
+                    class="
+                      btn
+                      border-dark border-2
+                      px-3
+                      py-2
+                      button-hover
+                      pri-button
+                      mx-auto
+                    "
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
