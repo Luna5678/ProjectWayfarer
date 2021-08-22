@@ -155,8 +155,8 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body" id='modal_body_container'>
-            <div class="container" id='modal_container'>
+          <div class="modal-body">
+            <div class="container">
               <form action="{% url 'login' %}" method="post" id="signin_form">
                 {% csrf_token %}
                 <div class="mb-3 sign_in_form">
@@ -177,7 +177,7 @@
                     data-dismiss="modal"
                     data-toggle="modal"
                     data-target="#signup_modal"
-                    >need an account?</a
+                    >Need an account?</a
                   >
                   {% endcomment %}
                   <button
@@ -222,33 +222,32 @@
             ></button>
           </div>
           <div class="modal-body">
-            <div class="container-fluid">
+            <div class="container">
               <form action="{% url 'signup' %}" method="post" id="signup_form">
+                {% csrf_token %}
                 <div class="mb-3">
-                  {% csrf_token %}
                   <label>First Name</label>
                   <input
                     type="text"
                     class="form-control"
                     name="first_name"
                     id="first_name_area"
-                    autofocus
-                  />
+                    autofocus required/>
                 </div>
                 <div class="mb-3">
                   <label>Last Name</label>
-                  <input type="text" class="form-control" name="last_name" />
+                  <input type="text" class="form-control" name="last_name" required/>
                 </div>
                 <div class="mb-3">
                   <label>Email address</label>
-                  <input type="text" class="form-control" name="email" />
+                  <input type="text" class="form-control" name="email" required/>
                 </div>
                 <div class="mb-3">
                   <label>Password</label>
                   <input
                     type="password"
                     class="form-control"
-                    name="password1"
+                    name="password1" required
                   />
                 </div>
                 <div class="mb-3">
@@ -256,20 +255,23 @@
                   <input
                     type="password"
                     class="form-control"
-                    name="password2"
+                    name="password2" required
                   />
                 </div>
                 <div class="mb-3">
-                  <label>Username</label>
-                  <input type="text" class="form-control" name="username" />
-                </div>
+                  <label for="validationDefaultUsername" class="form-label">Username</label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                    <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" name='username' autofocus required>
+                  </div>
+               </div>
                 <div class="mb-3">
                   <label>Profile Image</label>
-                  <input type="text" class="form-control" name="image" />
+                  <input type="text" class="form-control" name="image" required/>
                 </div>
                 <div class="mb-3">
                   <label>Current City</label>
-                  <input type="text" class="form-control" name="current_city" />
+                  <input type="text" class="form-control" name="current_city" required/>
                 </div>
                 <div class="modal-footer">
                   <button
