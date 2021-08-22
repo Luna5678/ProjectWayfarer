@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <form action="{% url 'city_post' %}" method="post" id="post_city_form">
+        <div class="mb-3">
+        {% csrf_token %}
+        <label>City</label>
+        <select class="form-select" id="post_city_select" aria-label="Floating label select example" autofocus>
+            <option value="London">London</option>
+            <option value="Sydney">Sydney</option>
+            <option value="San Fracisco">San Francisco</option>
+            <option value="Seattle">Seattle</option>
+        </select>
+        </div>
+        <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder="Leave a title here" name="city_title" id="city_title_float"/>
+        <label for="city_title_float">Title</label>
+        </div>
+        <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder="Leave a title here" name="city_title" id="city_title_float"/>
+        <label for="city_title_float">Author</label>
+        </div>
+        <div class="form-floating mb-3">
+        <textarea class="form-control" placeholder="Leave a comment here" id="city_context"></textarea>
+        <label for="city_context">Got any tips?</label>
+        </div>
+        <div class="modal-footer">
+        <button
+            type="submit"
+            class="
+            btn
+            border-dark border-2
+            px-3
+            py-2
+            button-hover
+            pri-button
+            mx-auto
+            "
+        >
+            Submit
+        </button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
+
+
+
