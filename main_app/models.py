@@ -11,11 +11,11 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(
-        User, null=True, on_delete=models.CASCADE, related_name="profile")
+        User, null=False, on_delete=models.CASCADE, related_name="profile")
     current_city = models.CharField(
-        max_length=50, blank=True)
+        max_length=50, blank=False)
     image = models.CharField(
-        max_length=500, blank=True)
+        max_length=500, blank=False)
 
     def __str__(self):
         return str(self.user)
@@ -29,17 +29,23 @@ class Profile(models.Model):
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
 
-
-class Post(models.Model):
-    title = CharField(max_length=60)
-    content = TextField(max_length=500)
-    created_at = DateTimeField(auto_now_add=True)
-    author = CharField(max_length=50)
-    # author = ForeignKey(Profile, on_delete=models.CASCADE,
-    #                     related_name='profiles')
-    location = CharField(max_length=50)
-    # location = ForeignKey(
-    #     Location, on_delete=models.CASCADE, related_name='locations')
+class City(models.Model):
+    city = models.CharField(max_length=60, blank=False)
+    country = models.CharField(max_length=60, blank=False) 
+    image = models.CharField(max_length=500, blank=False)
 
     class Meta:
-        ordering = ['created_at']
+        ordering = ['city']
+
+class Post(models.Model):
+    title = models.CharField(max_length=60, blank=False)
+    content = models.TextField(max_length=1000, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='posts')
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='posts')
+
+    class Meta:
+        ordering = ['-created_at']
+
+
+
