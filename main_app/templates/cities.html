@@ -15,7 +15,7 @@
       <h1>Cities</h1>
       <div class="list-group">
         {% for city in cities %}
-        <a href="#" class="list-group-item list-group-item-action active">
+        <a href="{% url 'city_detail' city.pk %}" class="list-group-item list-group-item-action" id="left_city_selector">
           <img src="{{ city.image }}" class="img-thumbnail" alt="..."> {{ city.city}}
         </a>
         {% endfor %}
@@ -26,12 +26,13 @@
     <div class="col-sm-8 p-5 rounded-end" id="display_city">
       <div class="row">
         <div class="col-8 col-sm-12">
-          
+       
           <div class="container">
             <img src="https://d3qvqlc701gzhm.cloudfront.net/thumbs/1e762419597366200bfdafa615e365d9683633fe81a56da25e96cd501abfac49-750.jpg" class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
-            <h1>San Francisco</h1>
-            <h3>United States</h3>
+            <h1 id="city_post_name">City goes here</h1>
+            <h3 id="country_post_name">Country goes here</h3>
           </div>
+        
         </div>
 
         <div class="container d-flex align-items-center justify-content-between px-5">
@@ -48,11 +49,13 @@
           
           <div class="container">
             <div class="list-group all_cities_txt">
-              {% for city in cities %}
-              <h1> {{ cities.objects.all }}</h1>
-              <a href="#" class="list-group-item list-group-item-action">
-                <img src="{{ post.image }}" class="img-thumbnail" alt="..."> Post Title
-              </a>
+              {% for post in posts.all %}
+                <!-- {% if post.city == city.city %} -->
+                <h1> {{ post.title }}</h1>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <img src="{{ post.image }}" class="img-thumbnail" alt="..."> {{ post.title }}
+                </a>
+                <!-- {% endif %} -->
               {% endfor %}
 
             </div>
