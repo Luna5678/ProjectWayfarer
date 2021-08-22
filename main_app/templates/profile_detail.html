@@ -1,4 +1,9 @@
-{% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
+{% extends 'base.html' %} 
+
+{% block title %}Profile{% endblock  %} 
+
+{% block content %} {% if user.is_authenticated %}
+
 <main>
   <div class="profile_page">
     <h1 id="profile-detail-heading">{{user.first_name}} {{user.last_name}}'s Profile</h1>

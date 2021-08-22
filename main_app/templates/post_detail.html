@@ -1,4 +1,8 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+
+{% block title %}Post{% endblock  %} 
+
+{% block content %}
 <main class="px-5 py-4">
   <h2 id="post-detail-heading" class="py-3">{{post.title}}</h2>
   <h3>Author: {{post.author}}</h3>
