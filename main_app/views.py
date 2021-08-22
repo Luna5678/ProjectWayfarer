@@ -90,3 +90,8 @@ class ProfileRedirect(View):
 
 class Cities(TemplateView):
     template_name = "cities.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cities"] = Cities.objects.all()
+        return context

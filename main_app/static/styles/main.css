@@ -28,14 +28,14 @@ main {
 
 .btn {
   border-radius: 3px !important;
-  background-color: white;
+  background-color: var(--yellow);
   color: black;
   transition: 0.3s !important;
 }
 
 .button-hover:hover {
-  box-shadow: 5px 5px black;
-  color: black;
+  box-shadow: 5px 5px var(--pink);
+  color: black !;
 }
 
 .pri-button {
@@ -78,7 +78,7 @@ main {
 
 #nav_title {
   font-family: Monoton, sans-serif;
-  color: black;
+  color: var(--yellow);
   margin-bottom: 0px;
   padding-left: 10px !important;
 }
