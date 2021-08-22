@@ -155,22 +155,20 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
-            <div class="container">
+          <div class="modal-body" id='modal_body_container'>
+            <div class="container" id='modal_container'>
               <form action="{% url 'login' %}" method="post" id="signin_form">
-                <div class="mb-3">
-                  {% csrf_token %}
-                  <label>Username</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="username"
-                    autofocus
-                  />
+                {% csrf_token %}
+                <div class="mb-3 sign_in_form">
+                  <label for="validationDefaultUsername" class="form-label">Username</label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                    <input type="text" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" name='username' autofocus required>
+                  </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 sign_in_form">
                   <label>Password</label>
-                  <input type="password" class="form-control" name="password" />
+                  <input type="password" class="form-control" name="password" required/>
                 </div>
                 <div class="d-flex modal-footer justify-content-between">
                   {% comment %}
