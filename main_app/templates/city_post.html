@@ -6,24 +6,31 @@
     <form action="{% url 'city_post' %}" method="post" id="post_city_form">
         <div class="mb-3">
         {% csrf_token %}
-        <label>City</label>
-        <select class="form-select" id="post_city_select" aria-label="Floating label select example" autofocus>
-            <option value="London">London</option>
-            <option value="Sydney">Sydney</option>
-            <option value="San Fracisco">San Francisco</option>
-            <option value="Seattle">Seattle</option>
-        </select>
+            <label>City</label>
+            {% comment %} {{ form.as_p }} {% endcomment %}
+            <select class="form-select" id="post_city_select" aria-label="Floating label select example" name="city" autofocus>
+                <option value="1">Berlin</option>
+                <option value="2">Havana</option>
+                <option value="3">Johannesburg</option>
+                <option value="4">London</option>
+                <option value="5">Rio de Janeiro</option>
+                <option value="6">San Francisco</option>
+                <option value="7">Seattle</option>
+                <option value="8">Singapore</option>
+                <option value="9">Sydney</option>
+                <option value="10">Tokyo</option>
+            </select>
         </div>
         <div class="form-floating mb-3">
-        <input type="text" class="form-control" placeholder="Leave a title here" name="city_title" id="city_title_float"/>
-        <label for="city_title_float">Title</label>
+            <input type="text" class="form-control" placeholder="Leave a title here" id="city_title_float" name="title"/>
+            <label for="city_title_float">Title</label>
         </div>
         <div class="form-floating mb-3">
-        <input type="text" class="form-control" placeholder="Leave a title here" name="city_title" id="city_title_float"/>
-        <label for="city_title_float">Author</label>
+            <input type="text" class="form-control" placeholder="Leave a title here" value="{{ user.username }}" id="city_title_float" name="author"/>
+            <label for="city_title_float">Author</label>
         </div>
         <div class="form-floating mb-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="city_context"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="city_context" name="content"></textarea>
         <label for="city_context">Got any tips?</label>
         </div>
         <div class="modal-footer">
