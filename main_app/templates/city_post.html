@@ -7,18 +7,18 @@
         <div class="mb-3">
             <label>City</label>
             {% csrf_token %}
-            {% comment %} {{ form.as_p }} {% endcomment %}
             <select class="form-select" id="post_city_select" aria-label="Floating label select example" name="city" autofocus>
-                <option value="1">Berlin</option>
-                <option value="2">Havana</option>
-                <option value="3">Johannesburg</option>
-                <option value="4">London</option>
-                <option value="5">Rio de Janeiro</option>
-                <option value="6">San Francisco</option>
-                <option value="7">Seattle</option>
-                <option value="8">Singapore</option>
-                <option value="9">Sydney</option>
-                <option value="10">Tokyo</option>
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="1">Berlin, Germany</option>
+                <option value="2">Havana, Cuba</option>
+                <option value="3">Johannesburg, South Africa</option>
+                <option value="4">London, England</option>
+                <option value="5">Rio de Janeiro, Brazil</option>
+                <option value="6">San Francisco, United States</option>
+                <option value="7">Seattle, United States</option>
+                <option value="8">Singapore, Singapore</option>
+                <option value="9">Sydney, Australia</option>
+                <option value="10">Tokyo, Japan</option>
             </select>
         </div>
         <div class="form-floating mb-3">
