@@ -28,9 +28,9 @@
         <div class="col-8 col-sm-12">
        
           <div class="container">
-            <img src="https://d3qvqlc701gzhm.cloudfront.net/thumbs/1e762419597366200bfdafa615e365d9683633fe81a56da25e96cd501abfac49-750.jpg" class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
-            <h1 id="city_post_name">City goes here</h1>
-            <h3 id="country_post_name">Country goes here</h3>
+            <img src="{{city.image}}" class="col-md-6 float-md-end mb-3 ms-md-3" alt="...">
+            <h1 id="city_post_name">{{city.city}}</h1>
+            <h3 id="country_post_name">{{city.country}}</h3>
           </div>
         
         </div>
@@ -57,10 +57,10 @@
           <div class="container">
             <div class="list-group all_cities_txt">
               {% for post in posts %}
-                <h1> {{ post.title }}</h1>
                 <a href="#" class="list-group-item list-group-item-action">
-                  <img src="{{ post.image }}" class="img-thumbnail" alt="..."> {{ post.title }}
+                  <img src="{{ post.image }}" class="img-thumbnail" alt="..."> 
                 </a>
+                <h1>{{ post.title }}</h1>
               {% endfor %}
             </div>
           </div>
