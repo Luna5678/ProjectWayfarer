@@ -12,7 +12,7 @@ from .models import Profile, User, Post, City
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse
-from django.views.generic.edit import UpdateView, CreateView
+from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.contrib import messages
 
 
@@ -102,6 +102,12 @@ class PostEdit(UpdateView):
 
     def get_success_url(self):
         return reverse("post_detail", kwargs={"pk": self.object.pk})
+
+
+class PostDelete(DeleteView):
+    model = Post
+    template_name = "post_delete_confirmation.html"
+    success_url = "/profile/"
 
 
 # === CITY VIEWS ===

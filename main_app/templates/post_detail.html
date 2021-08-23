@@ -5,17 +5,33 @@
   <h2 id="post-detail-heading" class="py-3"><b>{{post.title}}</b></h2>
   <h3><b>Author:</b> {{post.author}}</h3>
   <p class="lh-lg">{{post.content}}</p>
+
+  <button
+    type="button"
+    class="btn border-dark border-2 px-3 py-2 button-hover edit-button"
+    data-bs-toggle="modal"
+    data-bs-target="#post_edit_modal"
+  >
+    Edit
+  </button>
+
+  <button
+    type="button"
+    class="btn border-dark border-2 px-3 py-2 button-hover edit-button"
+    data-bs-toggle="modal"
+    data-bs-target="#post_delete_modal"
+  >
+    Delete
+  </button>
+
+  {% comment %}
+  <a
+    href="{% url 'post_delete' post.pk %}"
+    class="btn border-dark border-2 px-3 py-2 button-hover edit-button"
+    >Delete</a
+  >
+  {% endcomment %}
 </main>
-
-<button
-  type="button"
-  class="btn border-dark border-2 px-3 py-2 button-hover edit-button"
-  data-bs-toggle="modal"
-  data-bs-target="#post_edit_modal"
->
-  Edit Post
-</button>
-
 {% comment %} Modal for edit post {% endcomment %}
 
 <div
@@ -111,6 +127,65 @@
                 Submit
               </button>
             </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} Delete Post Modal {% endcomment %}
+
+<div
+  class="modal fade"
+  id="post_delete_modal"
+  tabindex="-1"
+  aria-labelledby="post_delete_modal_label"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="post_delete_modal_label">
+          Are you sure you want to delete {{post.title}}?
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form action="{% url 'post_delete' post.pk %}" method="post">
+            {% csrf_token %}
+            <button
+              type="button"
+              class="
+                btn
+                border-dark border-2
+                px-3
+                py-2
+                button-hover
+                cancel-button
+              "
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <input
+              class="
+                btn
+                border-dark border-2
+                px-3
+                py-2
+                button-hover
+                edit-button
+              "
+              type="submit"
+              value="Confirm"
+            />
           </form>
         </div>
       </div>
