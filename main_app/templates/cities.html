@@ -57,7 +57,7 @@
             <div class="list-group all_cities_txt">
               {% for post in city.posts.all %}
                   <a href="{% url 'post_detail' post.pk %}" class="list-group-item list-group-item-action">
-                    <img src="{{ profile.image }}" class="img-thumbnail" alt="..."> {{ post.title }}
+                    <img src="{{ post.author.profile.image }}" class="img-thumbnail" alt="..."> {{ post.title }}
                   </a>
               {% endfor %}
             </div>
