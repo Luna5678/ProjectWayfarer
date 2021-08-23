@@ -53,6 +53,7 @@
                 <div class="profile-post-container">
                   <a href="{% url 'post_detail' post.pk %}" class="cta-link"
                     ><h3>{{ post.title }}</h3></a>
+                    <p><b>{{post.city}}, {{post.city.country}}</b></p>
                   <p><b>Author:</b> {{post.author}}</p>
                   <p>{{post.content}}</p>
                 </div>
