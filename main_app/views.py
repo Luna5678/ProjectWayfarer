@@ -12,7 +12,7 @@ from .models import Profile, User, Post, City
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse
-from django.views.generic.edit import UpdateView, CreateView
+from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.contrib import messages
 
 
@@ -45,14 +45,15 @@ class Signup(View):
                                     password=raw_password)
                 login(request, user)
                 return redirect('home')
-            else: 
+            else:
                 return render(request, "home.html", {'form': form})
         else:
             form = ProfileForm()
         return render(request, 'home.html', {'form': form})
 
 
-# GET
+# === USER PROFILE VIEWS ===
+
 @method_decorator(login_required, name='dispatch')
 class ProfileDetail(DetailView):
     model = Profile
@@ -63,41 +64,65 @@ class ProfileDetail(DetailView):
         context["posts"] = Post.objects.all()
         return context
 
+
 class NameProfileEdit(UpdateView):
     model = User
-    fields = [ "first_name","last_name" ]
+    fields = ["first_name", "last_name"]
     template_name = "profile_edit.html"
-    
 
     def get_success_url(self):
         return reverse("profile", kwargs={"pk": self.object.pk})
-    
+
+
 class CityProfileEdit(UpdateView):
     model = Profile
-    fields = [ "current_city" ]
+    fields = ["current_city"]
     template_name = "city_profile_edit.html"
-    
+
     def get_success_url(self):
         return reverse("profile", kwargs={"pk": self.object.pk})
-    
-class PostDetail(DetailView):
-    model = Post
-    template_name = "post_detail.html"
-    
+
+
 class ProfileRedirect(View):
     def get(self, request):
         return redirect(f'/profile/{request.user.profile.pk}')
+
+
+# === POSTS VIEWS ===
+
+class PostDetail(DetailView):
+    model = Post
+    template_name = "post_detail.html"
+
+
+class PostEdit(UpdateView):
+    model = Post
+    fields = ["title", "content", "city"]
+    template_name = "post_edit.html"
+
+    def get_success_url(self):
+        return reverse("post_detail", kwargs={"pk": self.object.pk})
+
+
+class PostDelete(DeleteView):
+    model = Post
+    template_name = "post_delete_confirmation.html"
+    success_url = "/profile/"
+
+
+# === CITY VIEWS ===
 
 class Cities(TemplateView):
     model = City
     model = Post
     template_name = "cities.html"
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["posts"] = Post.objects.all()
         context["cities"] = City.objects.all()
         return context
+
 
 class CityPost(CreateView):
     model = Post
@@ -109,6 +134,4 @@ class CityPost(CreateView):
         return super(CityPost, self).form_valid(form)
 
     def get_success_url(self):
-        return reverse("cities", kwargs= {"pk" :self.object.pk})
-
-
+        return reverse("cities", kwargs={"pk": self.object.pk})
