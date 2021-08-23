@@ -112,7 +112,7 @@ class PostDelete(DeleteView):
 
 # === CITY VIEWS ===
 
-class Cities(TemplateView):
+class Cities(DetailView):
     model = City
     template_name = "cities.html"
 
