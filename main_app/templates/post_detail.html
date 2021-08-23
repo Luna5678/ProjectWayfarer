@@ -2,7 +2,10 @@
 <!-- protect -->
 {% block content %}
 <main class="px-5 py-4">
-  <h2 id="post-detail-heading" class="py-3"><b>{{post.title}}</b></h2>
+  <h2 id="post-detail-heading" class="py-3">
+    <b>{{post.title}}</b> <br />
+    {{post.city}}, {{post.city.country}}
+  </h2>
   <h3><b>Author:</b> {{post.author}}</h3>
   <p class="lh-lg">{{post.content}}</p>
 

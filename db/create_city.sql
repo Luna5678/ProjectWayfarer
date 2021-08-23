@@ -10,5 +10,3 @@ INSERT INTO main_app_city(city, country, image)
     ('Singapore', 'Singapore', 'https://res.klook.com/image/upload/c_fill,w_750,h_500,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/mcegxphankqeujwbhpjp.jpg'),
     ('Sydney', 'Australia', 'https://img.theculturetrip.com/1440x/smart/wp-content/uploads/2017/09/redfern-mural--jam-project_flickr.jpg'),
     ('Tokyo', 'Japan', 'https://japansaucedotnet.files.wordpress.com/2018/12/Original-Gundam.jpg?w=700')
-
-
