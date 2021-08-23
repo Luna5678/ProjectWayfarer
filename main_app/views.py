@@ -114,25 +114,14 @@ class PostDelete(DeleteView):
 
 class Cities(TemplateView):
     model = City
-    # model = Post
     template_name = "cities.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context["posts"] = Post.objects.all()
+        context["posts"] = Post.objects.filter(city=kwargs.get("pk"))
         context["cities"] = City.objects.all()
         return context
 
-
-class CityPost(CreateView):
-    model = Post
-    template_name = "cities.html"
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["posts"] = Post.objects.all()
-        # context["cities"] = City.objects.all()
-        return context
 
 # class CityPost(CreateView):
 #     model = Post

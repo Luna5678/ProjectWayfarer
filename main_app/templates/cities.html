@@ -56,13 +56,11 @@
           
           <div class="container">
             <div class="list-group all_cities_txt">
-              {% for post in posts.all %}
-                <!-- {% if city.city == city.city %} -->
-                <h1> {{ posts.title }}</h1>
+              {% for post in posts %}
+                <h1> {{ post.title }}</h1>
                 <a href="#" class="list-group-item list-group-item-action">
-                  <img src="{{ posts.image }}" class="img-thumbnail" alt="..."> {{ posts.title }}
+                  <img src="{{ post.image }}" class="img-thumbnail" alt="..."> {{ post.title }}
                 </a>
-                <!-- {% endif %} -->
               {% endfor %}
             </div>
           </div>
