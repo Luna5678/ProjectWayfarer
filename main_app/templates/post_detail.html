@@ -2,7 +2,10 @@
 <!-- protect -->
 {% block content %}
 <main class="px-5 py-4">
-  <h2 id="post-detail-heading" class="py-3"><b>{{post.title}}</b></h2>
+  <h2 id="post-detail-heading" class="py-3">
+    <b>{{post.title}}</b> <br />
+    {{post.city}}, {{post.city.country}}
+  </h2>
   <h3><b>Author:</b> {{post.author}}</h3>
   <p class="lh-lg">{{post.content}}</p>
 
@@ -69,16 +72,16 @@
                   <option value="none" selected disabled hidden>
                     Select an Option
                   </option>
-                  <option value="1">London, England</option>
-                  <option value="2">San Francisco, U.S.</option>
-                  <option value="3">Seattle, U.S.</option>
-                  <option value="4">Sydney, Australia</option>
-                  <option value="5">Berlin, Germany</option>
-                  <option value="6">Singapore, Signapore</option>
-                  <option value="7">Tokyo, Japan</option>
-                  <option value="8">Rio de Janeiro, Brazil</option>
-                  <option value="9">Havana, Cuba</option>
-                  <option value="10">Johannesburg, South Africa</option>
+                  <option value="1">Berlin, Germany</option>
+                  <option value="2">Havana, Cuba</option>
+                  <option value="3">Johannesburg, South Africa</option>
+                  <option value="4">London, England</option>
+                  <option value="5">Rio de Janeiro, Brazil</option>
+                  <option value="6">San Francisco, United States</option>
+                  <option value="7">Seattle, United States</option>
+                  <option value="8">Singapore, Singapore</option>
+                  <option value="9">Sydney, Australia</option>
+                  <option value="10">Tokyo, Japan</option>
                 </select>
               </div>
               <div class="form-group mb-3">
