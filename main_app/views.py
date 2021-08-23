@@ -123,19 +123,6 @@ class Cities(TemplateView):
         return context
 
 
-# class CityPost(CreateView):
-#     model = Post
-#     fields = ["city", "title", "author", "content"]
-#     template_name = "city_post.html"
-
-#     def form_valid(self, form):
-#         form.instance.user = self.request.user
-#         return super(CityPost, self).form_valid(form)
-
-#     def get_success_url(self):
-#         # return reverse("cities", kwargs = {"pk": self.object.pk})
-#         return reverse("cities")
-
 class CityPost(View):
     def get(self, request):
         form = PostForm()
@@ -154,16 +141,6 @@ class CityPost(View):
                 post.author = form.cleaned_data.get('author')
                 post.content = form.cleaned_data.get('content')
                 post.save()
-                return redirect('cities')
+                return redirect(f'/cities/{request.POST.get("city")}')
             else: 
                 return render(request, "city_post.html", {'form': form})
-
-    # def post(self, request):
-    #     city = request.POST.get("city")
-    #     title = request.POST.get("title")
-    #     author = request.POST.get("author")
-    #     content = request.POST.get("content")
-    #     profile = self.request.user.profile
-    #     post_ = Post.objects.create(city=city, title=title, author=author, content=content)
-
-    #     return redirect("cities")
