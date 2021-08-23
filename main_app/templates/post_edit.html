@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% block title %}Update Post{% endblock %}
+<!-- protect -->
+{% block content %} {% if user.is_authenticated %}
+<h1>Edit Your Post</h1>
+
+<form action="" method="POST">
+  <div class="form-group">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label>City</label>
+      <select
+        class="form-select"
+        id="post_city_select"
+        aria-label="Floating label select example"
+        name="city"
+        autofocus
+      >
+        <option value="none" selected disabled hidden>Select an Option</option>
+        <option value="1">London, England</option>
+        <option value="2">San Francisco, U.S.</option>
+        <option value="3">Seattle, U.S.</option>
+        <option value="4">Sydney, Australia</option>
+        <option value="5">Berlin, Germany</option>
+        <option value="6">Singapore, Signapore</option>
+        <option value="7">Tokyo, Japan</option>
+        <option value="8">Rio de Janeiro, Brazil</option>
+        <option value="9">Havana, Cuba</option>
+        <option value="10">Johannesburg, South Africa</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" name="title" id="title" />
+    </div>
+
+    <div class="form-group">
+      <label for="post-content">Got any tips?</label>
+      <textarea
+        class="form-control"
+        name="content"
+        id="post-content"
+      ></textarea>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% else %}
+<p>error</p>
+{% endif %} {% endblock content %}
