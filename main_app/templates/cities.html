@@ -58,7 +58,9 @@
               {% for post in city.posts.all %}
                   <a href="{% url 'post_detail' post.pk %}" class="list-group-item list-group-item-action">
                     <img src="{{ post.author.profile.image }}" class="img-thumbnail" alt="..."> {{ post.title }}
+                    <p>{{post.content}}</p>
                   </a>
+                  
               {% endfor %}
             </div>
           </div>
