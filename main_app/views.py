@@ -112,15 +112,16 @@ class PostDelete(DeleteView):
 
 # === CITY VIEWS ===
 
-class Cities(TemplateView):
+class Cities(DetailView):
     model = City
     template_name = "cities.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["posts"] = Post.objects.filter(city=kwargs.get("pk"))
         context["cities"] = City.objects.all()
+        
         return context
+
 
 
 class CityPost(View):
