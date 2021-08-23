@@ -4,7 +4,7 @@ from django.views import View
 from django.contrib.auth import login, authenticate
 # from django.contrib.auth.models import User
 # from django.forms import ModelForm
-from .forms import ProfileForm
+from .forms import ProfileForm, PostForm
 # from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
@@ -114,24 +114,67 @@ class PostDelete(DeleteView):
 
 class Cities(TemplateView):
     model = City
-    model = Post
+    # model = Post
     template_name = "cities.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["posts"] = Post.objects.all()
+        # context["posts"] = Post.objects.all()
         context["cities"] = City.objects.all()
         return context
 
 
 class CityPost(CreateView):
     model = Post
-    fields = ["city", "title", "author", "content"]
-    template_name = "city_post.html"
+    template_name = "cities.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["posts"] = Post.objects.all()
+        # context["cities"] = City.objects.all()
+        return context
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super(CityPost, self).form_valid(form)
+# class CityPost(CreateView):
+#     model = Post
+#     fields = ["city", "title", "author", "content"]
+#     template_name = "city_post.html"
 
-    def get_success_url(self):
-        return reverse("cities", kwargs={"pk": self.object.pk})
+#     def form_valid(self, form):
+#         form.instance.user = self.request.user
+#         return super(CityPost, self).form_valid(form)
+
+#     def get_success_url(self):
+#         # return reverse("cities", kwargs = {"pk": self.object.pk})
+#         return reverse("cities")
+
+class CityPost(View):
+    def get(self, request):
+        form = PostForm()
+        context = {
+            "form": form}
+        return render(request, "city_post.html", context)
+
+    def post(self, request):
+        if request.method == 'POST':
+            form = PostForm(request.POST)
+            if form.is_valid():
+                post = form.save()
+                post.city = form.cleaned_data.get(
+                    'city')
+                post.title = form.cleaned_data.get('title')
+                post.author = form.cleaned_data.get('author')
+                post.content = form.cleaned_data.get('content')
+                post.save()
+                return redirect('cities')
+            else: 
+                return render(request, "city_post.html", {'form': form})
+
+    # def post(self, request):
+    #     city = request.POST.get("city")
+    #     title = request.POST.get("title")
+    #     author = request.POST.get("author")
+    #     content = request.POST.get("content")
+    #     profile = self.request.user.profile
+    #     post_ = Post.objects.create(city=city, title=title, author=author, content=content)
+
+    #     return redirect("cities")

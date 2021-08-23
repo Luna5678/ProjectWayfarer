@@ -34,6 +34,8 @@ class City(models.Model):
     country = models.CharField(max_length=60, blank=False) 
     image = models.CharField(max_length=500, blank=False)
 
+    def __str__(self):
+        return self.city
     class Meta:
         ordering = ['city']
 
@@ -43,6 +45,9 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='city_posts')
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         ordering = ['-created_at']

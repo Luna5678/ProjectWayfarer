@@ -49,7 +49,6 @@
               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
               </svg>
           </button>
-
         </div>
 
 <!-- Right side of page for all city post -->
@@ -58,10 +57,10 @@
           <div class="container">
             <div class="list-group all_cities_txt">
               {% for post in posts.all %}
-                <!-- {% if post.city == city.city %} -->
-                <h1> {{ post.title }}</h1>
+                <!-- {% if city.city == city.city %} -->
+                <h1> {{ posts.title }}</h1>
                 <a href="#" class="list-group-item list-group-item-action">
-                  <img src="{{ post.image }}" class="img-thumbnail" alt="..."> {{ post.title }}
+                  <img src="{{ posts.image }}" class="img-thumbnail" alt="..."> {{ posts.title }}
                 </a>
                 <!-- {% endif %} -->
               {% endfor %}
@@ -98,20 +97,30 @@
                 <div class="mb-3">
                   {% csrf_token %}
                   <label>City</label>
-                  <select class="form-select" id="post_city_select" aria-label="Floating label select example" autofocus>
+                  <select class="form-select" id="post_city_select" aria-label="Floating label select example" name="city" autofocus>
+                    <option value="Berlin">Berlin</option>
+                    <option value="Havana">Havana</option>
+                    <option value="Johannesburg">Johannesburg</option>
                     <option value="London">London</option>
-                    <option value="Sydney">Sydney</option>
-                    <option value="San Fracisco">San Francisco</option>
+                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                    <option value="San Francisco">San Francisco</option>
                     <option value="Seattle">Seattle</option>
-                  </select>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Sydney">Sydney</option>
+                    <option value="Tokyo">Tokyo</option>
+                </select>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" placeholder="Leave a title here" name="city_title" id="city_title_float"/>
-                  <label for="city_title_float">Title</label>
+                <input type="text" class="form-control" placeholder="Leave a title here" id="city_title_float" name="title"/>
+                <label for="city_title_float">Title</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <textarea class="form-control" placeholder="Leave a comment here" id="city_context"></textarea>
-                  <label for="city_context">Got any tips?</label>
+                <input type="text" class="form-control" placeholder="Leave a title here" value="{{ user.username }}" id="city_title_float" name="author"/>
+                <label for="city_title_float">Author</label>
+                </div>
+                <div class="form-floating mb-3">
+                <textarea class="form-control" placeholder="Leave a comment here" id="city_context" name="content"></textarea>
+                <label for="city_context">Got any tips?</label>
                 </div>
                 <div class="modal-footer">
                   <button
