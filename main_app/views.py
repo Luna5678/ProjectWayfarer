@@ -141,6 +141,6 @@ class CityPost(View):
                 post.author = form.cleaned_data.get('author')
                 post.content = form.cleaned_data.get('content')
                 post.save()
-                return redirect('cities')
+                return redirect(f'/cities/{request.POST.get("city")}')
             else: 
                 return render(request, "city_post.html", {'form': form})
