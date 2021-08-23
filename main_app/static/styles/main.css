@@ -181,6 +181,10 @@ main {
   border-bottom: 5px var(--yellow) dotted;
 }
 
+#post_content {
+  font-size: 18px;
+}
+
 /* === Sign In Modal === */
 
 #signin_header {
