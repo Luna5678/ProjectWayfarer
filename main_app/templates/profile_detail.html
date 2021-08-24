@@ -2,9 +2,7 @@
 
 {% block title %}Profile{% endblock  %} 
 
-{% block content %}
-
-{% if user.is_authenticated %}
+{% block content %} {% if user.is_authenticated %}
 
 <main>
   <div class="profile_page">
@@ -37,7 +35,7 @@
 
           <h4 class="profile-detail-border py-4 mt-4"><strong>My Current City:</strong></h4>
           <div class="d-flex justify-content-between">
-            <p><strong>{{user.profile.current_city}}</strong></p>
+            <h4>{{user.profile.current_city}}</h4>
             {% comment %} city edit modal {% endcomment %}
               <button
               type="button"
@@ -52,12 +50,9 @@
           </div>
 
           <h4 class="profile-detail-border py-4 mt-4"><b>Join Date:</b></h4>
-          <p><strong>{{user.date_joined}}</strong></p>
-
+          <p>{{user.date_joined}}</p>
           {% else %}
-
           <p>error</p>
-
           {% endif %}
         </div>
 
@@ -68,9 +63,9 @@
                   <a href="{% url 'post_detail' post.pk %}" class="cta-link">
                     <h3 class="px-2">{{ post.title }}</h3>
                   </a>
-                    <p><b>{{post.city}}, {{post.city.country}}</b></p>
+                    <p><br><b>{{post.city}}, {{post.city.country}}</b></p>
                   <p><b>Author:</b> {{post.author}}</p>
-                  <p>{{post.content}}</p>
+                  <p>" {{post.content}} "</p>
                 </div>
             {% endfor %}
       </div>
@@ -178,5 +173,7 @@
     </div>
   </div>
 </main>
+
+
 
 {% endblock content %}
