@@ -1,8 +1,9 @@
-/* === Global === */
-
 @import url("https://fonts.googleapis.com/css2?family=Monoton&family=Urbanist:wght@400;600&display=swap");
 
 /* Show it is fixed to the top */
+
+/* === Global === */
+
 :root {
   --blue: #70d6ff;
   --pink: #ff70a6;
@@ -174,11 +175,11 @@ img {
   border-bottom: 5px var(--pink) dotted;
 }
 
+/* === Post Detail Page === */
+
 #post_detail_page {
   border: 5px var(--yellow) dotted;
 }
-
-/* === Post Detail Page === */
 
 #post-detail-heading {
   text-align: center;
@@ -186,40 +187,6 @@ img {
 }
 
 /* === Cities Page === */
-
-/* === Sign In Modal === */
-
-#signin_header {
-  background-color: var(--yellow);
-}
-
-#signin_modal_label {
-  font-family: Urbanist, sans-serif;
-  font-size: 25px;
-  font-weight: 600;
-}
-
-#signin_form {
-  font-family: Urbanist, sans-serif;
-  font-size: 20px;
-}
-
-/* === Sign Up Modal === */
-
-#signup_header {
-  background-color: var(--orange);
-}
-
-#signup_modal_label {
-  font-family: Urbanist, sans-serif;
-  font-size: 25px;
-  font-weight: 600;
-}
-
-#signup_form {
-  font-family: Urbanist, sans-serif;
-  font-size: 20px;
-}
 
 #all_cities {
   background-color: white;
@@ -236,10 +203,6 @@ img {
 #cities-headings {
   font-weight: 600;
 }
-
-/* .city-page-post-title:hover {
-  color: blue;
-} */
 
 #display_city {
   background-color: white;
@@ -283,6 +246,40 @@ img {
 }
 
 .post-content {
+  font-size: 20px;
+}
+
+/* === Sign In Modal === */
+
+#signin_header {
+  background-color: var(--yellow);
+}
+
+#signin_modal_label {
+  font-family: Urbanist, sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#signin_form {
+  font-family: Urbanist, sans-serif;
+  font-size: 20px;
+}
+
+/* === Sign Up Modal === */
+
+#signup_header {
+  background-color: var(--orange);
+}
+
+#signup_modal_label {
+  font-family: Urbanist, sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#signup_form {
+  font-family: Urbanist, sans-serif;
   font-size: 20px;
 }
 
