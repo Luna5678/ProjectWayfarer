@@ -53,4 +53,3 @@ class Post(models.Model):
         ordering = ['-created_at']
 
 
-

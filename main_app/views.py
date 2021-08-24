@@ -16,6 +16,8 @@ from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.contrib import messages
 
 
+from django.views.generic.base import TemplateView
+from .models import Profile
 # Create your views here.
 
 
