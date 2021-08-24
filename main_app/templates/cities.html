@@ -1,22 +1,17 @@
-{% extends 'base.html' %} {% block title %}Cities<!-- protect -->
-{% endblock %} {% block content %}
+{% extends 'base.html' %} {% block title %}Cities{% endblock %}
+<!-- protect -->
+{% block content %}
 <!-- protect -->{% if user.is_authenticated %}
-
-<div class="container-fluid col-11" id="city_container">
-  <div class="row g-2" id="city_row">
-    <!-- Left side of page for cities -->
-
+<main>
+  <div class="container-fluid col-12" id="city_container">
+    <div class="row g-2" id="city_row">
+      <!-- Left side of page for cities -->
     <div class="col-sm-4 p-5 rounded-start" id="all_cities">
       <div class="cities_heading">
         <h1><span id="cities-headings">Cities</span></h1>
       </div>
       <div class="list-group">
         {% for city in cities %}
-<<<<<<< HEAD
-        <a href="{% url 'city_detail' city.pk %}" class="list-group-item list-group-item-action" id="left_city_selector">
-          <img src="{{ city.image }}" class="img-thumbnail" alt="..."> {{ city.city }}
-        </a>
-=======
         <div class="city-container my-2 rounded">
           <a
             href="{% url 'city_detail' city.pk %}"
@@ -27,193 +22,194 @@
             {{ city.city}}
           </a>
         </div>
->>>>>>> dev
         {% endfor %}
+        </div>
       </div>
-    </div>
 
-    <!-- right side of page for current city -->
-    <div class="col-sm-8 p-5 rounded-end" id="display_city">
-      <div class="row">
-        <div class="col-8 col-sm-12">
-          <div class="container">
-            <img
-              src="{{city.image}}"
-              class="col-md-6 float-md-end mb-3 ms-md-3"
-              alt="..."
-            />
-            <h1 id="city_post_name">
-              <span id="cities-headings">{{city.city}}</span>
-            </h1>
-            <h3 id="country_post_name">{{city.country}}</h3>
+      <!-- right side of page for current city -->
+      <div class="col-sm-8 p-5 rounded-end" id="display_city">
+        <div class="row">
+          <div class="col-8 col-sm-12">
+            <div class="container">
+              <img
+                src="{{city.image}}"
+                class="col-md-6 float-md-end mb-3 ms-md-3"
+                alt="..."
+              />
+              <h1 id="city_post_name">
+                <span id="cities-headings">{{city.city}}</span>
+              </h1>
+              <h3 id="country_post_name">{{city.country}}</h3>
+            </div>
+          </div>
+
+          <div
+            class="
+              container
+              d-flex
+              align-items-center
+              justify-content-between
+              px-5
+            "
+          >
+            <h1><span id="cities-headings">Posts</span></h1>
+            <!-- Post modal trigger -->
+            <button
+              type="button"
+              class="px-3 py-2 button-hover mx-2 btn"
+              data-bs-toggle="modal"
+              data-bs-target="#post_city_modal"
+              id="post_city_button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="35"
+                height="35"
+                fill="currentColor"
+                class="bi bi-plus-circle-fill"
+                viewBox="0 0 16 16"
+                id="new_post_button"
+              >
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Right side of page for all city post -->
+          <div class="col-4 col-sm-12">
+            <div class="container">
+              <div class="list-group all_cities_txt">
+                {% for post in city.posts.all %}
+                <div class="my-2 rounded city-container">
+                  <a
+                    href="{% url 'post_detail' post.pk %}"
+                    class="list-group-item list-group-item-action"
+                  >
+                    <img
+                      src="{{ post.author.profile.image }}"
+                      class="img-thumbnail"
+                      alt="..."
+                    />
+                    <span class="city-page-post-title">{{ post.title }}</span>
+                    <p class="post-content">"{{post.content}}"</p>
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <div
-          class="
-            container
-            d-flex
-            align-items-center
-            justify-content-between
-            px-5
-          "
-        >
-          <h1><span id="cities-headings">Posts</span></h1>
-          <!-- Post modal trigger -->
+  <!-- Post modal -->
+  <div
+    class="modal fade"
+    id="post_city_modal"
+    tabindex="-1"
+    aria-labelledby="post_city_modal_label"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" id="post_city_header">
+          <h5 class="modal-title" id="post_city_modal_label">
+            Create New Post!
+          </h5>
           <button
             type="button"
-            class="px-3 py-2 button-hover mx-2 btn"
-            data-bs-toggle="modal"
-            data-bs-target="#post_city_modal"
-            id="post_city_button"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="35"
-              height="35"
-              fill="currentColor"
-              class="bi bi-plus-circle-fill"
-              viewBox="0 0 16 16"
-              id="new_post_button"
-            >
-              <path
-                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"
-              />
-            </svg>
-          </button>
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
         </div>
-
-        <!-- Right side of page for all city post -->
-        <div class="col-4 col-sm-12">
+        <div class="modal-body">
           <div class="container">
-            <div class="list-group all_cities_txt">
-              {% for post in city.posts.all %}
-              <div class="my-2 rounded city-container">
-                <a
-                  href="{% url 'post_detail' post.pk %}"
-                  class="list-group-item list-group-item-action"
+            <form
+              action="{% url 'city_post' %}"
+              method="post"
+              id="post_city_form"
+            >
+              <div class="mb-3">
+                <label>City</label>
+                {% csrf_token %}
+                <select
+                  class="form-select"
+                  id="post_city_select"
+                  aria-label="Floating label select example"
+                  name="city"
+                  autofocus
                 >
-                  <img
-                    src="{{ post.author.profile.image }}"
-                    class="img-thumbnail"
-                    alt="..."
-                  />
-                  <span class="city-page-post-title">{{ post.title }}</span>
-                  <p class="post-content">"{{post.content}}"</p>
-                </a>
+                  <option value="none" selected disabled hidden>
+                    Select an Option
+                  </option>
+                  <option value="1">Berlin, Germany</option>
+                  <option value="2">Havana, Cuba</option>
+                  <option value="3">Johannesburg, South Africa</option>
+                  <option value="4">London, England</option>
+                  <option value="5">Rio de Janeiro, Brazil</option>
+                  <option value="6">San Francisco, United States</option>
+                  <option value="7">Seattle, United States</option>
+                  <option value="8">Singapore, Singapore</option>
+                  <option value="9">Sydney, Australia</option>
+                  <option value="10">Tokyo, Japan</option>
+                </select>
               </div>
-              {% endfor %}
-            </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Leave a title here"
+                  id="city_title_float"
+                  name="title"
+                />
+                <label for="city_title_float">Title</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Leave a title here"
+                  value="{{ user.pk }}"
+                  id="city_title_float"
+                  name="author"
+                  hidden
+                />
+                <label for="city_title_float">Author</label>
+              </div>
+              <div class="form-floating mb-3">
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="city_context"
+                  name="content"
+                ></textarea>
+                <label for="city_context">Got any tips?</label>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="submit"
+                  class="
+                    btn
+                    border-dark border-2
+                    px-3
+                    py-2
+                    button-hover
+                    pri-button
+                    mx-auto
+                  "
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- Post modal -->
-<div
-  class="modal fade"
-  id="post_city_modal"
-  tabindex="-1"
-  aria-labelledby="post_city_modal_label"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" id="post_city_header">
-        <h5 class="modal-title" id="post_city_modal_label">Create New Post!</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <div class="container">
-          <form
-            action="{% url 'city_post' %}"
-            method="post"
-            id="post_city_form"
-          >
-            <div class="mb-3">
-              <label>City</label>
-              {% csrf_token %}
-              <select
-                class="form-select"
-                id="post_city_select"
-                aria-label="Floating label select example"
-                name="city"
-                autofocus
-              >
-                <option value="none" selected disabled hidden>
-                  Select an Option
-                </option>
-                <option value="1">Berlin, Germany</option>
-                <option value="2">Havana, Cuba</option>
-                <option value="3">Johannesburg, South Africa</option>
-                <option value="4">London, England</option>
-                <option value="5">Rio de Janeiro, Brazil</option>
-                <option value="6">San Francisco, United States</option>
-                <option value="7">Seattle, United States</option>
-                <option value="8">Singapore, Singapore</option>
-                <option value="9">Sydney, Australia</option>
-                <option value="10">Tokyo, Japan</option>
-              </select>
-            </div>
-            <div class="form-floating mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Leave a title here"
-                id="city_title_float"
-                name="title"
-              />
-              <label for="city_title_float">Title</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Leave a title here"
-                value="{{ user.pk }}"
-                id="city_title_float"
-                name="author"
-                hidden
-              />
-              <label for="city_title_float">Author</label>
-            </div>
-            <div class="form-floating mb-3">
-              <textarea
-                class="form-control"
-                placeholder="Leave a comment here"
-                id="city_context"
-                name="content"
-              ></textarea>
-              <label for="city_context">Got any tips?</label>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="submit"
-                class="
-                  btn
-                  border-dark border-2
-                  px-3
-                  py-2
-                  button-hover
-                  pri-button
-                  mx-auto
-                "
-              >
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+</main>
 {% endif %} {% endblock content %}
