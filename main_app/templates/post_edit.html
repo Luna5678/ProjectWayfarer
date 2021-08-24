@@ -1,9 +1,9 @@
-{% extends 'base.html' %} {% block title %}Update Post<!--protect-->
+{% extends 'base.html' %} {% block title %}Update Post
 {% endblock %}
 <!-- protect -->
 {% block content %} {% if user.is_authenticated %}
-<h1>Edit Your Post</h1>
 {% if post.author.pk == user.pk %}
+<h1>Edit Your Post</h1>
 <form action="" method="POST">
   <div class="form-group">
     {% csrf_token %}
@@ -53,11 +53,15 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 {% else %}
-<p>
-  You are not authorized to edit this post.
-  <a href="/cities/1/">Return to all posts.</a>
-</p>
-<iframe src="https://giphy.com/embed/13ywPzPJdfhmBG" width="480" height="349" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<div class="text-center">
+  <iframe src="https://giphy.com/embed/13ywPzPJdfhmBG" width="580" height="449" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+  <h2>
+    Nice try, but we can't let you do that.
+  </h2>
+  <h2>But you can edit your own posts!</h2>
+  <h2><a href="/cities/1/">Return to all posts.</a></h2>
+</div>
 {% endif %} {% else %}
 <h4>404 Not found. <a href="/">Return to homepage.</a></h4>
-{% endif %} {% endblock content %}
+
+{% endif %}{% endblock content %}
