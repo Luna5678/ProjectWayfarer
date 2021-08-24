@@ -9,26 +9,8 @@
     {% csrf_token %}
 
     <div class="form-group">
-      <label>City</label>
-      <select
-        class="form-select"
-        id="post_city_select"
-        aria-label="Floating label select example"
-        name="city"
-        autofocus
-      >
-        <option value="none" selected disabled hidden>Select an Option</option>
-        <option value="1">Berlin, Germany</option>
-        <option value="2">Havana, Cuba</option>
-        <option value="3">Johannesburg, South Africa</option>
-        <option value="4">London, England</option>
-        <option value="5">Rio de Janeiro, Brazil</option>
-        <option value="6">San Francisco, United States</option>
-        <option value="7">Seattle, United States</option>
-        <option value="8">Singapore, Singapore</option>
-        <option value="9">Sydney, Australia</option>
-        <option value="10">Tokyo, Japan</option>
-      </select>
+      <label><b>{{ post.city }}, {{ post.city.country }}</b></label>
+        <input type="text" name="city" value="{{post.city.pk}}" hidden>
     </div>
 
     <div class="form-group">
