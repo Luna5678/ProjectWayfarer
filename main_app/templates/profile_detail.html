@@ -2,7 +2,9 @@
 
 {% block title %}Profile{% endblock  %} 
 
-{% block content %} {% if user.is_authenticated %}
+{% block content %}
+
+{% if user.is_authenticated %}
 
 <main>
   <div class="profile_page">
@@ -50,8 +52,11 @@
 
           <h4 class="profile-detail-border py-4 mt-4"><b>Join Date:</b></h4>
           <p><strong>{{user.date_joined}}</strong></p>
+
           {% else %}
+
           <p>error</p>
+
           {% endif %}
         </div>
 
@@ -171,7 +176,5 @@
     </div>
   </div>
 </main>
-
-
 
 {% endblock content %}

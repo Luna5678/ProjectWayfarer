@@ -219,6 +219,7 @@ img {
 .all_cities_txt img {
   max-width: 120px;
 }
+
 .all_cities_txt {
   font-size: 40px;
 }
@@ -231,6 +232,7 @@ img {
 
 .city-container {
   background-color: var(--darkyellow);
+  transition: 0.3s;
 }
 
 .city-container:hover {
@@ -377,4 +379,18 @@ img {
   font-family: Urbanist, sans-serif;
   font-size: 20px;
   background-color: var(--blue);
+}
+
+/* === About Page === */
+
+#about_page {
+  color: gray;
+  text-decoration: none;
+  opacity: 75%;
+  transition: 0.3s;
+}
+
+#about_page:hover {
+  color: black;
+  font-size: larger;
 }
