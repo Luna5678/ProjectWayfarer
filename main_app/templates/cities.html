@@ -42,7 +42,7 @@
             <div class="container">
               <img
                 src="{{city.image}}"
-                class="col-md-6 float-md-end mb-3 ms-md-3"
+                class="img-fluid col-md-6 float-md-end mb-3 ms-md-3 "
                 alt="..."
               />
               <h1 id="city_post_name">
@@ -91,7 +91,7 @@
             <div class="container">
               <div class="list-group all_cities_txt">
                 {% for post in city.posts.all %}
-                <div class="my-2 rounded city-container">
+                <div class="my-2 rounded city-container text-truncate">
                   <a
                     href="{% url 'post_detail' post.pk %}"
                     class="list-group-item list-group-item-action"
