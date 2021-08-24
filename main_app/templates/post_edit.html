@@ -1,8 +1,9 @@
-{% extends 'base.html' %} {% block title %}Update Post{% endblock %}
+{% extends 'base.html' %} {% block title %}Update Post<!--protect-->
+{% endblock %}
 <!-- protect -->
 {% block content %} {% if user.is_authenticated %}
 <h1>Edit Your Post</h1>
-
+{% if post.author.pk == user.pk %}
 <form action="" method="POST">
   <div class="form-group">
     {% csrf_token %}
@@ -32,22 +33,30 @@
 
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" name="title" id="title" />
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        value="{{post.title}}"
+      />
     </div>
 
     <div class="form-group">
       <label for="post-content">Got any tips?</label>
-      <textarea
-        class="form-control"
-        name="content"
-        id="post-content"
-      ></textarea>
+      <textarea class="form-control" name="content" id="post-content">
+{{post.content}}</textarea
+      >
     </div>
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
 {% else %}
-<p>error</p>
+<p>
+  You are not authorized to edit this post.
+  <a href="/cities/1/">Return to all posts.</a>
+</p>
+{% endif %} {% else %}
+<h4>404 Not found. <a href="/">Return to homepage.</a></h4>
 {% endif %} {% endblock content %}
