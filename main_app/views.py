@@ -23,6 +23,10 @@ class Home(TemplateView):
     template_name = 'home.html'
 
 
+class AboutPage(TemplateView):
+    template_name = 'about.html'
+
+
 class Signup(View):
     def get(self, request):
         form = ProfileForm()
