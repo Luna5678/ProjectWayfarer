@@ -21,14 +21,29 @@
 
     <script src="{% static 'scripts/main.js' %}" defer></script>
 
-    <link rel="icon" href="/static/images/favicon.ico"/>
-    
+    <link rel="icon" href="/static/images/favicon.ico" />
+
     <title>Wayfarer - {% block title %}{% endblock %}</title>
   </head>
 
   <body>
     <nav class="navbar navbar-expand-md fixed-top">
       <div class="container-fluid">
+        {% if user.is_authenticated %}
+        <a class="navbar-brand" href="/cities/1/">
+          <div class="d-flex align-items-center">
+            <img
+              src="https://image.flaticon.com/icons/png/512/1820/1820732.png"
+              width="50"
+              height="50"
+              class="d-inline-block align-top ms-3"
+              alt=""
+            />
+            <h1 id="nav_title" class="ps-1">Wayfarer</h1>
+          </div>
+        </a>
+
+        {% else %}
         <a class="navbar-brand" href="/">
           <div class="d-flex align-items-center">
             <img
@@ -41,9 +56,11 @@
             <h1 id="nav_title" class="ps-1">Wayfarer</h1>
           </div>
         </a>
+        {% endif %}
+
         <button
           class="navbar-toggler navbar navbar-light"
-          id= "navbar_hamburger"
+          id="navbar_hamburger"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
@@ -74,22 +91,6 @@
                 "
                 href="{% url 'profile' user.pk %}"
                 ><b>{{user.first_name}}'s</b> Profile</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                class="
-                  nav-link
-                  btn
-                  border-dark border-2
-                  px-3
-                  py-2
-                  button-hover
-                  mx-2
-                  me-3
-                "
-                href="/cities/1/"
-                >City Tips</a
               >
             </li>
             <li class="nav-item">
