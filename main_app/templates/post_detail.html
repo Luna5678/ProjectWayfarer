@@ -7,8 +7,11 @@
       <b>{{post.title}}</b> <br />
       {{post.city}}, {{post.city.country}}
     </h2>
-    <h3 id="author_post"><b>Author:</b> {{post.author}}</h3>
-    <p class="lh-lg" id="post_content">{{post.content}}</p>
+    <div class= "d-flex align-items-center justify-content-between">
+      <h4 id="author_post"><b>Author:</b> {{post.author}}</h4>
+      <p>{{ post.created_at }}</p>
+    </div>
+    <p class="lh-lg" id="post_content">"{{post.content}}"</p>
 
     {% if post.author.pk == user.pk %}
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
