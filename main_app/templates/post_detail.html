@@ -16,7 +16,7 @@
       <h4 id="author_post"><b>Author:</b> {{post.author}}</h4>
       <p>{{ post.created_at }} PST</p>
     </div>
-    <p class="lh-lg" id="post_content">"{{post.content}}"</p>
+    <p class="lh-lg" id="post_content">" {{post.content}} "</p>
 
     {% if post.author.pk == user.pk %}
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
