@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <form action="{% url 'city_post' %}" method="post" id="post_city_form">
+        <div class="mb-3">
+            <label>City</label>
+            {% csrf_token %}
+            <select class="form-select" id="post_city_select" aria-label="Floating label select example" name="city" autofocus>
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="1">Berlin, Germany</option>
+                <option value="2">Havana, Cuba</option>
+                <option value="3">Johannesburg, South Africa</option>
+                <option value="4">London, England</option>
+                <option value="5">Rio de Janeiro, Brazil</option>
+                <option value="6">San Francisco, United States</option>
+                <option value="7">Seattle, United States</option>
+                <option value="8">Singapore, Singapore</option>
+                <option value="9">Sydney, Australia</option>
+                <option value="10">Tokyo, Japan</option>
+            </select>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" placeholder="Leave a title here" id="city_title_float" name="title"/>
+            <label for="city_title_float">Title</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" placeholder="Leave a title here" value="{{ user.pk }}" id="city_title_float" name="author" hidden/>
+            <label for="city_title_float">Author</label>
+        </div>
+        <div class="form-floating mb-3">
+        <textarea class="form-control" placeholder="Leave a comment here" id="city_context" name="content"></textarea>
+        <label for="city_context">Got any tips?</label>
+        </div> 
+        <div class="modal-footer">
+        <button
+            type="submit"
+            class="
+            btn
+            border-dark border-2
+            px-3
+            py-2
+            button-hover
+            pri-button
+            mx-auto
+            "
+        >
+            Submit
+        </button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
+
+
+

@@ -1,6 +1,23 @@
-<h1 class="title">Log In</h1>
-<form method="post" action="{% url 'login' %}">
-  {% csrf_token %} {{ form.as_p }}
-  <input type="submit" class="btn" value="login" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</form>
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+    <h3>{{ user.username }} you are already logged in. Please <a href="{% url 'logout' %}">logout.</a></h3>
+
+{% else %}
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %} 
+        {{ form.as_p }}
+        <input type="submit" class="btn" value="login" />
+        <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+
+{% endif %}
+
+{% endblock content %}
+
+
+

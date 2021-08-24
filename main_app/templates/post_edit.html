@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %} Update Post {% endblock %}
+<!-- protect -->
+{% block content %}
+
+{% if user.is_authenticated %}
+
+{% if post.author.pk == user.pk %}
+
+<h1>Edit Your Post</h1>
+<form action="" method="POST">
+  <div class="form-group">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label><b>{{ post.city }}, {{ post.city.country }}</b></label>
+        <input type="text" name="city" value="{{post.city.pk}}" hidden>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        id="title"
+        value="{{post.title}}"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="post-content">Got any tips?</label>
+      <textarea class="form-control" name="content" id="post-content">
+{{post.content}}</textarea
+      >
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% else %}
+<div class="text-center">
+  <iframe src="https://giphy.com/embed/13ywPzPJdfhmBG" width="580" height="449" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+  <h2>
+    Nice try, but we can't let you do that.
+  </h2>
+  <h2>But you can edit your own posts!</h2>
+  <h2><a href="/cities/1/">Return to all posts.</a></h2>
+</div>
+
+{% endif %}
+
+{% else %}
+
+<h4>404 Not found. 
+  <a href="/">Return to homepage.</a>
+</h4>
+
+{% endif %}
+
+{% endblock content %}
