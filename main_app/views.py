@@ -52,7 +52,7 @@ class Signup(View):
                 login(request, user)
                 return redirect('home')
             else:
-                return render(request, "home.html", {'form': form})
+                print(form.errors)
         else:
             form = ProfileForm()
         return render(request, 'home.html', {'form': form})
