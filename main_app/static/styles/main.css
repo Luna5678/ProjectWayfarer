@@ -395,3 +395,34 @@ img {
   color: black;
   font-size: larger;
 }
+
+#github_icon {
+  color: gray;
+  transition: 0.3s;
+}
+
+#github_icon:hover {
+  color: black;
+}
+
+#linkedin_icon {
+  color: gray;
+  transition: 0.3s;
+}
+
+#linkedin_icon:hover {
+  color: black;
+}
+
+#about_container {
+  border: 5px dotted var(--orange);
+  padding: 20px;
+}
+
+#link_body {
+  background-color: var(--blue);
+}
+
+#about_body {
+  background-color: white;
+}
