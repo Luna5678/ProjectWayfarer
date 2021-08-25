@@ -2,18 +2,80 @@
 
 {% block content %}
 
+{% include 'home.html' %}
+
 {% if user.is_authenticated %}
 
     <h3>{{ user.username }} you are already logged in. Please <a href="{% url 'logout' %}">logout.</a></h3>
 
 {% else %}
 
-    <form method="post" action="{% url 'login' %}">
+    {% comment %} <form method="post" action="{% url 'login' %}">
         {% csrf_token %} 
         {{ form.as_p }}
         <input type="submit" class="btn" value="login" />
         <input type="hidden" name="next" value="{{ next }}" />
-    </form>
+    </form> {% endcomment %}
+
+    <!-- Sign In Modal -->
+        <div
+        class="modal fade"
+        id="signin_modal"
+        tabindex="-1"
+        aria-labelledby="signin_modal_label"
+        aria-hidden="true"
+        >
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header" id="signin_header">
+                <h5 class="modal-title" id="signin_modal_label">Sign In</h5>
+                <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                <form action="{% url 'login' %}" method="post" id="signin_form">
+                    <div class="mb-3">
+                    {% csrf_token %}
+                    <label>Username</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="username"
+                        autofocus
+                        required
+                    />
+                    </div>
+                    <div class="mb-3">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password" required/>
+                    </div>
+                    <div class="d-flex modal-footer justify-content-between">
+                    <button
+                        type="submit"
+                        class="
+                        btn
+                        border-dark border-2
+                        px-3
+                        py-2
+                        button-hover
+                        pri-button
+                        mx-auto
+                        "
+                    >
+                        Submit
+                    </button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
 
 {% endif %}
 
