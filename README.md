@@ -1,6 +1,8 @@
 <h1>Project Wayfarer</h1>
 <p>Wayfarer is a web application where people can share tips about their travel locations around the world. It builds a community for people seeking to travel or craving to learn about the art and architectures around the world. Users can create posts to share their travel tips and highlights. Users also have their own profile page, which shows their information and their history of posts in descending order.</p>
 
+<h2>Live Link: http://wayfarer-art-app.herokuapp.com/</h2>
+
 <h2>Team</h2>
 <p>Lonna Lu</p>
 <p>Jon Ver Cabral Dela Cruz</p>
