@@ -1,81 +1,119 @@
-{% extends 'base.html' %}
-
-{% block title %}Home{% endblock  %}
-
-{% block content %}
+{% extends 'base.html' %} {% block title %}Home{% endblock %} {% block content%}
 
 <div id="carouselID" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselID" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselID" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselID" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button
+      type="button"
+      data-bs-target="#carouselID"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselID"
+      data-bs-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-bs-target="#carouselID"
+      data-bs-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
   </div>
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://s9155.pcdn.co/wp-content/uploads/2016/04/San-Francisco-Mission-District-Womens-Building.jpg.optimal.jpg" class="d-block w-100" alt="...">
+      <img
+        src="/static/images/johannesburg.jpeg/"
+        class="d-block w-100"
+        alt="Johannesburg"
+      />
     </div>
-
     <div class="carousel-item">
-      <img src="https://i2.wp.com/embracesomeplace.com/wp-content/uploads/2020/03/DSC08086.jpg?resize=1024%2C683&ssl=1" class="d-block w-100" alt="...">
+      <img
+        src="/static/images/london.jpeg/"
+        class="d-block w-100"
+        alt="London"
+      />
     </div>
-
     <div class="carousel-item">
-      <img src="https://nycphotojourneys.com/wp-content/uploads/2016/08/street_art-1200x800.jpeg" class="d-block w-100" alt="...">
+      <img
+        src="/static/images/riodejaneiro.jpeg/"
+        class="d-block w-100"
+        alt="Rio De Janeiro"
+      />
     </div>
-
   </div>
 
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselID" data-bs-slide="prev">
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselID"
+    data-bs-slide="prev"
+  >
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselID" data-bs-slide="next">
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselID"
+    data-bs-slide="next"
+  >
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
 </div>
 <main>
-  <h3 class='my-4'id='homepage_welcome'>Wayfarer is . . .</h3>
+  <h3 class="my-4" id="homepage_welcome">Wayfarer is . . .</h3>
   <div class="container-fluid" id="homepage_body">
     <div class="card-group">
-      <div class="card h-100" >
-        <div class="card-header">Header</div>
+      <div class="card h-100">
+        <div class="card-header">Global</div>
         <div class="card-body" id="card_one">
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <img class='card_image' src="https://static.wixstatic.com/media/5275c9_2cfe9a8289134a4eb633968bdbb42d0b~mv2.gif" alt="">
+          <p class="card-text">
+            Art is everywhere. It evokes a different message to each of us.
+            Share your thoughts and inspire new meaning.
+          </p>
+          <img class="card_image" src="/static/images/gif1.gif" alt="Art gif" />
         </div>
       </div>
-  
-      <div class="card h-100" >
-        <div class="card-header">Header</div>
+
+      <div class="card h-100">
+        <div class="card-header">Abstract</div>
         <div class="card-body">
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <img class='card_image' src="https://scontent-iad3-1.cdninstagram.com/v/t51.2885-15/159945332_1058528084554204_6815093253476758079_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=8ae9d6&_nc_ohc=VWzKT0GyN8IAX-YPtyB&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AEQ6tj4EAAAA&oh=453a22579c92f1521698583b4d32ecbe&oe=612B4099" alt="">
+          <p class="card-text">
+            It's true that a picture is worth a thousand words. We embrace our
+            differences because what's life without color?
+          </p>
+          <img class="card_image" src="/static/images/gif2.gif" alt="Art gif" />
         </div>
       </div>
-  
-      <div class="card h-100" >
-        <div class="card-header">Header</div>
+
+      <div class="card h-100">
+        <div class="card-header">Broad</div>
         <div class="card-body" id="card_three">
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <img class='card_image' src="https://static.wixstatic.com/media/5275c9_5a2b8480197c4206beb6b68c365bf798~mv2.gif" alt="">
+          <p class="card-text">
+            People of all ages are artists. Our community wants to see them all!
+            Help us locate the hidden gems.
+          </p>
+          <img class="card_image" src="/static/images/gif3.gif" alt="Art gif" />
         </div>
       </div>
     </div>
   </div>
-  <br>
-  
+  <br />
+
   <footer class="d-flex justify-content-center">
-        <div>
-          <a href="{% url 'about' %}" id="about_page">
-            About Page
-          </a>
-        </div>
+    <div>
+      <a href="{% url 'about' %}" id="about_page"> About Us </a>
+    </div>
   </footer>
 
-  <br>
+  <br />
 </main>
 
-{% endblock  %}
-
+{% endblock %}

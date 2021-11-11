@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-
-{% block title %} {{ city.city }} {% endblock %}
+{% extends 'base.html' %} {% block title %} {{ city.city }} {% endblock %}
 
 <!-- protect -->
 
@@ -42,7 +40,7 @@
             <div class="container">
               <img
                 src="{{city.image}}"
-                class="img-fluid col-md-6 float-md-end mb-3 ms-md-3 "
+                class="img-fluid col-md-6 float-md-end mb-3 ms-md-3"
                 alt="..."
               />
               <h1 id="city_post_name">
@@ -87,7 +85,7 @@
           </div>
 
           <!-- Right side of page for all city post -->
-          <div class="col-4 col-sm-12">
+          <div class="col-sm-12">
             <div class="container">
               <div class="list-group all_cities_txt">
                 {% for post in city.posts.all %}
@@ -102,7 +100,7 @@
                       alt="..."
                     />
                     <span class="city-page-post-title">{{ post.title }}</span>
-                    <p class="post-content"><br>" {{post.content}} "</p>
+                    <p class="post-content"><br />" {{post.content}} "</p>
                   </a>
                 </div>
                 {% endfor %}
@@ -222,6 +220,4 @@
   </div>
 </main>
 
-{% endif %}
-
-{% endblock content %}
+{% endif %} {% endblock content %}
